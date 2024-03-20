@@ -4,4 +4,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root "static_public#home"
+  get "about", to: "static_public#about"
+  get "contact", to: "static_public#contact"
+  get "privacy", to: "static_public#privacy"
+  get "terms", to: "static_public#terms"
+  get "legal_notice", to: "static_public#legal_notice"
 end
