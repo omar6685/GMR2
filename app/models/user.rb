@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   after_create :assign_default_role
+  has_many :home_videos
 
   def assign_default_role
    self.add_role(:customer) if self.roles.blank?

@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get "privacy", to: "static_public#privacy"
   get "terms", to: "static_public#terms"
   get "legal_notice", to: "static_public#legal_notice"
+  resources :home_videos , only: [:new, :create, :show, :edit, :update]
 end
