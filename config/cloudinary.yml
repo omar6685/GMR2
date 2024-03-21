@@ -1,0 +1,11 @@
+development: 
+  cloud_name: "dzv3mfsjo"
+  api_key: "367135238265689"
+  api_secret: "JD6kIbGaOT99ept3pJmm3o87Bm0"
+  secure: true
+
+production:
+  cloud_name: "dzv3mfsjo"
+  api_key: "367135238265689"
+  api_secret: "JD6kIbGaOT99ept3pJmm3o87Bm0"
+  secure: true
