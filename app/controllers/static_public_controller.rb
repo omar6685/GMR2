@@ -2,6 +2,7 @@ class StaticPublicController < ApplicationController
     skip_before_action :authenticate_user!, only: [:home, :about, :contact, :privacy, :terms, :legal_notice]
 
     def home
+        @home_video = HomeVideo.last
     end
 
     def about

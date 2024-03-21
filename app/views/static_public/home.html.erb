@@ -1,0 +1,117 @@
+
+    <div id="app" data-v-app="">
+        <header class="bg-black">
+            <nav class="container relative flex items-center justify-between px-6 py-8 mx-auto text-white">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+
+                        </path>
+                    </svg>
+                </a>
+                <button class="md:hidden">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </span>
+                    <span style="display: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </span>
+                </button>
+                <div class="opacity-0 -translate-x-full absolute inset-x-0 z-30 w-full px-6 py-8 mt-4 space-y-6 transition-all duration-300 ease-in-out bg-indigo-600 top-16 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:space-y-0 md:-mx-6 md:flex md:items-center">
+                    <!--<a href="#" class="block text-white transition-colors duration-300 md:px-6 hover:text-indigo-300">Home</a>
+                    <a href="#" class="block text-white transition-colors duration-300 md:px-6 hover:text-indigo-300"> About </a>
+                    <a href="#" class="block text-white transition-colors duration-300 md:px-6 hover:text-indigo-300"> Portfolio<a>
+                    <a href="#" class="block text-white transition-colors duration-300 md:px-6 hover:text-indigo-300"> Blogs </a>
+                    <a href="#" class="block text-white transition-colors duration-300 md:px-6 hover:text-indigo-300"> Contact </a>-->
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <% if @home_video.video.attached? %>
+                    <% if @home_video.video.video? %>
+                        <video controls autoplay muted class="relative grid w-full bg-black h-96 lg:h-[32rem] place-items-center">
+                            <source src="<%= rails_blob_path(@home_video.video) %>" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    <% end %>
+                <% else %>
+                  <p>No video uploaded.</p>
+                <% end %>
+                <svg class="fill-black" viewBox="0 0 1440 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1440 0H0V57C720 0 1440 57 1440 57V0Z"></path>
+                </svg>
+            </section>
+            <section class="container px-6 py-8 mx-auto lg:py-16" id="about">
+                <div class="lg:flex lg:items-center lg:-mx-4">
+                    <div class="lg:w-1/2 lg:px-4">
+                        <h3 class="text-xl font-medium text-gray-800 md:text-2xl lg:text-3xl">GMR Recycling: Leading the Charge in Metal Recovery & Environmental Conservation.</h3>
+                        <p class="mt-6 text-gray-500"> GMR Recycling specializes in recycling and metal recovery. At GMR, we 
+                            strive to achieve the highest standards in preserving the environment and natural resources. 
+                            We are also keen to use the latest clean technology in order to recover metals and raise 
+                            awareness about the importance of recovering metals in a correct and environmentally friendly 
+                            manner. We also explain to you the company’s most important activities and its products of 
+                            recovered metals. We thank you for visiting our website and learning more about the 
+                            importance of recycling lead-acid batteries and recovering metals.
+                        </p>
+                    </div>
+                    <div class="mt-8 lg:w-1/2 lg:px-4 lg:mt-0">
+                        <%= image_tag('image4.png', alt: '', class: "object-cover w-full rounded-xl h-96") %>
+                    </div>
+                </div>
+            </section>
+            <section class="container px-6 py-8 mx-auto lg:py-16">
+                <div class="grid grid-cols-1 gap-8 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
+                    <div class="p-8 space-y-3 border-2 border-indigo-400 rounded-xl">
+                        <span class="inline-block text-indigo-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path>
+                                </svg>
+                        </span>
+                        <h1 class="text-2xl font-semibold text-gray-700 capitalize">Battery recycling</h1>
+                        <p class="text-gray-500"> Pioneering eco-friendly lead-acid battery recycling, maximizing value with cutting-edge technology for a cleaner future. </p>
+                    </div>
+                    <div class="p-8 space-y-3 border-2 border-indigo-400 rounded-xl">
+                        <span class="inline-block text-indigo-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg>
+                        </span>
+                        <h1 class="text-2xl font-semibold text-gray-700 capitalize">Aluminum recycling</h1>
+                        <p class="text-gray-500">Transformative Innovations: Aluminum Recycling for Sustainable Futures.</p>
+                    </div>
+                    <div class="p-8 space-y-3 border-2 border-indigo-400 rounded-xl">
+                        <span class="inline-block text-indigo-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            </svg>
+                        </span>
+                        <h1 class="text-2xl font-semibold text-gray-700 capitalize">Copper recycling</h1>
+                        <p class="text-gray-500">The Vital Role of Copper Recycling in Sustainability. </p>
+                    </div>
+                </div>
+            </section>
+            <section class="container px-6 py-8 mx-auto lg:py-16">
+                <h3 class="text-xl font-medium text-gray-800 md:text-2xl lg:text-3xl">Our Products</h3>
+                <div class="grid grid-cols-1 gap-10 mt-10 md:grid-cols-2 lg:grid-cols-3">
+                    <a href="#" class="transition-all duration-500 lg:col-span-2 hover:scale-105">
+                        <%= image_tag('image1.png', alt: '', class: 'object-cover  w-full rounded-lg shadow-md shadow-gray-200 h-80 xl:h-96') %>
+                    </a>
+                    <a href="#" class="transition-all duration-500 hover:scale-105">
+                        <%= image_tag('image3.png', alt: '', class: 'object-cover object-top w-full rounded-lg shadow-md shadow-gray-200 h-80 xl:h-96') %>
+                    </a>
+                    <a href="#" class="transition-all duration-500 hover:scale-105">
+                        <%= image_tag('image2.png', alt: '', class: 'object-cover object-top w-full rounded-lg shadow-md shadow-gray-200 h-80 xl:h-96') %>
+                    </a>
+                    <a href="#" class="transition-all duration-500 lg:col-span-2 hover:scale-105">
+                        <%= image_tag('image4.png', alt: '', class: 'object-cover w-full rounded-lg shadow-md shadow-gray-200 h-80 xl:h-96') %>
+                    </a>
+                </div>
+            </section>
+        </main>
+        <footer class="flex flex-col items-center py-5 text-white bg-black">
+            <p class="text-center">Copyright © 2024, GMR.</p>
+        </footer>
+    </div> 
