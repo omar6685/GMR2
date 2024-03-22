@@ -17,10 +17,11 @@
   </div>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+    <%= form.label :image, style: "display: block" %>
+    <%= form.file_field :image, accept: 'image/png,image/jpeg,image/jpg' %>
   </div>
 
+    <%= form.hidden_field :user_id, value: current_user.id %>
   <div>
     <%= form.submit %>
   </div>

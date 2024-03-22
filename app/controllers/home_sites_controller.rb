@@ -65,6 +65,6 @@ class HomeSitesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def home_site_params
-      params.require(:home_site).permit(:title, :user_id)
+      params.require(:home_site).permit(:title, :user_id, :image)
     end
 end
