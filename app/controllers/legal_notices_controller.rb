@@ -65,6 +65,6 @@ class LegalNoticesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def legal_notice_params
-      params.require(:legal_notice).permit(:title, :user_id)
+      params.require(:legal_notice).permit(:title, :user_id, :content, :content_ar, :title_ar)
     end
 end

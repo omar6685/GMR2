@@ -17,9 +17,21 @@
   </div>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+    <%= form.label :title_ar, style: "display: block" %>
+    <%= form.text_field :title_ar %>
   </div>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.label :content_ar, style: "display: block" %>
+    <%= form.text_area :content_ar %>
+  </div>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
 
   <div>
     <%= form.submit %>
