@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get "terms", to: "static_public#terms"
   get "legal_notice", to: "static_public#legal_notice"
   resources :home_videos , only: [:new, :create, :show]
+  resources :home_tests
 end
