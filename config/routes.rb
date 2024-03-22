@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :socials
   resources :logos
   resources :legal_notices
   resources :terms
