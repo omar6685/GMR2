@@ -65,6 +65,6 @@ class PrivaciesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def privacy_params
-      params.require(:privacy).permit(:title, :user_id)
+      params.require(:privacy).permit(:title, :user_id, :content, :content_ar, :title_ar)
     end
 end
