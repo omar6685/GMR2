@@ -65,6 +65,6 @@ class HomeBoxesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def home_box_params
-      params.require(:home_box).permit(:title, :description, :user_id)
+      params.require(:home_box).permit(:title, :description, :user_id, :title_ar, :description_ar)
     end
 end
