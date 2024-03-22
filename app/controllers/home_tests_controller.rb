@@ -65,6 +65,6 @@ class HomeTestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def home_test_params
-      params.require(:home_test).permit(:title, :user_id, :content)
+      params.require(:home_test).permit(:title, :user_id, :content, :title_ar, :content_ar)
     end
 end
