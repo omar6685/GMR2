@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :terms
   resources :privacies
   resources :contacts
   resources :abouts
