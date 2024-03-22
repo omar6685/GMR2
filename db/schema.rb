@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_22_091232) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_22_093015) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -109,6 +109,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_091232) do
     t.index ["user_id"], name: "index_legal_notices_on_user_id"
   end
 
+  create_table "logos", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_logos_on_user_id"
+  end
+
   create_table "privacies", force: :cascade do |t|
     t.string "title"
     t.bigint "user_id", null: false
@@ -125,6 +133,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_091232) do
     t.datetime "updated_at", null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource"
+  end
+
+  create_table "socials", force: :cascade do |t|
+    t.string "linkind"
+    t.string "instgram"
+    t.string "x"
+    t.string "faacebook"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_socials_on_user_id"
   end
 
   create_table "terms", force: :cascade do |t|
@@ -164,6 +183,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_091232) do
   add_foreign_key "home_tests", "users"
   add_foreign_key "home_videos", "users"
   add_foreign_key "legal_notices", "users"
+  add_foreign_key "logos", "users"
   add_foreign_key "privacies", "users"
+  add_foreign_key "socials", "users"
   add_foreign_key "terms", "users"
 end
