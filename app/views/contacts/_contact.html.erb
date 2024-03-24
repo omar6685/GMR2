@@ -120,4 +120,63 @@
     <%= contact.user_id %>
   </p>
 
+  <p>
+    <strong>Employees</strong>
+    <ul>
+      <% contact.employees.each do |employee| %>
+        <li>
+            <p>
+              <strong>Name:</strong>
+              <%= content.name %>
+            </p>
+
+            <p>
+              <strong>Name Ar:</strong>
+              <%= content.name_ar %>
+            </p>
+
+            <p>
+              <strong>Position:</strong>
+              <%= content.position %>
+            </p>
+
+            <p>
+              <strong>Position Ar:</strong>
+              <%= content.position_ar %>
+            </p>
+
+            <p>
+              <strong>Phone:</strong>
+              <%= content.phone %>
+            </p>
+
+            <p>
+              <strong>Email:</strong>
+              <%= content.email %>
+            </p>
+
+            <p>
+              <strong>Language:</strong>
+              <%= content.language %>
+            </p>
+
+            <p>
+              <strong>Statement:</strong>
+              <%= content.statement %>
+            </p>
+
+            <p>
+              <strong>Statement Ar:</strong>
+              <%= content.statement_ar %>
+            </p>
+
+            <% if content.image.attached? %>
+              <%= image_tag  content.image %>
+            <% end %>
+        </li>
+      <% end %>
+    </ul>
+    
+  </p>
+
 </div>

@@ -1,0 +1,32 @@
+<div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
+
+    <%= f.label :image, "image" %>
+    <%= f.file_field :image %>
+
+    <%= f.label :name, "name" %>
+    <%= f.text_field :name %>
+
+    <%= f.label :name_ar, "name_ar" %>
+    <%= f.text_field :name_ar %>
+
+    <%= f.label :position, "position" %>
+    <%= f.file_field :position %>
+
+    <%= f.label :phone, "phone" %>
+    <%= f.text_field :phone %>
+
+    <%= f.label :email, "email" %>
+    <%= f.text_field :email %>
+
+    <%= f.label :language, "language" %>
+    <%= f.text_field :language %>
+
+    <%= f.label :statement, "statement" %>
+    <%= f.text_field :statement %>
+
+    <%= f.label :statement_ar, "statement_ar" %>
+    <%= f.text_field :statement_ar %>
+
+    <button type="button" data-action="nested-form#remove">Remove</button>
+    <%= f.hidden_field :_destroy %>
+</div>

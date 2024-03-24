@@ -1,4 +1,7 @@
-<%= form_with(model: contact) do |form| %>
+<%= form_with(model: contact, data: {
+  controller: "nested-form",
+  nested_form_wrapper_selector_value: '.nested-form-wrapper'
+}) do |form| %>
   <% if contact.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
@@ -87,7 +90,7 @@
     <%= form.file_field :image2 %>
   </div>
 
-  
+
   <div>
     <%= form.label :name2, style: "display: block" %>
     <%= form.text_field :name2 %>
@@ -133,6 +136,27 @@
     <%= form.label :statement2_ar, style: "display: block" %>
     <%= form.text_field :statement2_ar %>
   </div>
+
+
+
+  <%#   start custum logic here %>
+  <template data-nested-form-target="template">
+    <%= form.fields_for :employees, Employee.new, child_index: "NEW_RECORD" do |employee_fields| %>
+      <%= render 'products/product_employee_form', f: employee_fields %>
+    <% end %>
+  </template>
+
+  <%= form.fields_for :employees do |employee_fields| %>
+    <%= render 'products/product_employee_form', f: employee_fields %>
+  <% end %>
+
+
+  <!-- Inserted elements will be injected before that target. -->
+  <div data-nested-form-target="target"></div>
+
+  <button type="button" data-action="nested-form#add">Add Employee</button>
+
+  <%# end custom logic %>
 
 
 
