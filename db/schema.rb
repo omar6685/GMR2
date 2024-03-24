@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_24_143948) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_24_150906) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -120,6 +120,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_24_143948) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_highlights_on_product_id"
+  end
+
+  create_table "histories", force: :cascade do |t|
+    t.string "year"
+    t.string "description"
+    t.bigint "about_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "description_ar"
+    t.index ["about_id"], name: "index_histories_on_about_id"
   end
 
   create_table "home_boxes", force: :cascade do |t|
@@ -257,6 +267,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_24_143948) do
   add_foreign_key "employees", "contacts"
   add_foreign_key "features", "products"
   add_foreign_key "highlights", "products"
+  add_foreign_key "histories", "abouts"
   add_foreign_key "home_boxes", "users"
   add_foreign_key "home_sites", "users"
   add_foreign_key "home_tests", "users"
