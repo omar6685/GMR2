@@ -54,6 +54,11 @@
     <%= form.text_area :image_description_ar %>
   </div>
 
+  <div>
+    <%= form.label :images, style: "display: block" %>
+    <%= form.file_field :images, multiple: true %>
+  </div>
+
   <%= form.hidden_field :user_id, value: current_user.id %>
 
   

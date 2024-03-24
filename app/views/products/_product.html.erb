@@ -44,7 +44,19 @@
     <%= product.user_id %>
   </p>
 
-
+  <p>
+    <strong>Images:</strong>
+    <ul>
+      <% if product.images.attached? %>
+        <% product.images.each do |image| %>
+          <li>
+            <div id="<%= dom_id image %>">
+                <%= image_tag  image %>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
   <p>
     <strong>Features:</strong>
     <ul>
