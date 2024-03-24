@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_22_153016) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_24_113538) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,6 +70,22 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_153016) do
     t.datetime "updated_at", null: false
     t.string "title_ar"
     t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.string "title"
+    t.bigint "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_features_on_product_id"
+  end
+
+  create_table "highlights", force: :cascade do |t|
+    t.string "title"
+    t.bigint "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_highlights_on_product_id"
   end
 
   create_table "home_boxes", force: :cascade do |t|
@@ -135,6 +151,21 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_153016) do
     t.index ["user_id"], name: "index_privacies_on_user_id"
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "title"
+    t.string "title_ar"
+    t.text "description"
+    t.text "description_ar"
+    t.string "image_title"
+    t.string "image_title_ar"
+    t.text "image_description"
+    t.text "image_description_ar"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
@@ -189,6 +220,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_153016) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "contacts", "users"
+  add_foreign_key "features", "products"
+  add_foreign_key "highlights", "products"
   add_foreign_key "home_boxes", "users"
   add_foreign_key "home_sites", "users"
   add_foreign_key "home_tests", "users"
@@ -196,6 +229,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_22_153016) do
   add_foreign_key "legal_notices", "users"
   add_foreign_key "logos", "users"
   add_foreign_key "privacies", "users"
+  add_foreign_key "products", "users"
   add_foreign_key "socials", "users"
   add_foreign_key "terms", "users"
 end

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :highlights
+  resources :features
+  resources :products
   resources :socials
   resources :logos
   resources :legal_notices
