@@ -54,10 +54,7 @@
     <%= form.text_area :image_description_ar %>
   </div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
+  <%= form.hidden_field :user_id, value: current_user.id %>
 
   
   <%#   start custum logic here %>
