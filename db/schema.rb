@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_24_150906) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_24_153250) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -169,6 +169,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_24_150906) do
     t.index ["user_id"], name: "index_home_videos_on_user_id"
   end
 
+  create_table "information", force: :cascade do |t|
+    t.string "name"
+    t.string "name_ar"
+    t.string "title"
+    t.string "title_ar"
+    t.text "description"
+    t.text "description_ar"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_information_on_user_id"
+  end
+
   create_table "legal_notices", force: :cascade do |t|
     t.string "title"
     t.bigint "user_id", null: false
@@ -184,6 +197,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_24_150906) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_logos_on_user_id"
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "url"
+    t.string "title"
+    t.bigint "information_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["information_id"], name: "index_organizations_on_information_id"
   end
 
   create_table "privacies", force: :cascade do |t|
@@ -272,8 +294,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_24_150906) do
   add_foreign_key "home_sites", "users"
   add_foreign_key "home_tests", "users"
   add_foreign_key "home_videos", "users"
+  add_foreign_key "information", "users"
   add_foreign_key "legal_notices", "users"
   add_foreign_key "logos", "users"
+  add_foreign_key "organizations", "information"
   add_foreign_key "privacies", "users"
   add_foreign_key "products", "users"
   add_foreign_key "socials", "users"
