@@ -1,6 +1,14 @@
 <div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>" >
-    <%= f.label :title, "title" %>
-    <%= f.text_field :title %>
+
+    <%= f.label :content, "content" %>
+    <%= f.rich_text_area :content %>
+
+    <%= f.label :content_ar, "content_ar" %>
+    <%= f.rich_text_area :content_ar %>
+
+    <%= f.label :image, "image" %>
+    <%= f.file_field :image %>
+
     <button type="button" data-action="nested-form#remove">Remove</button>
     <%= f.hidden_field :_destroy %>
 </div>

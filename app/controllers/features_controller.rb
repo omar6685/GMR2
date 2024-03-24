@@ -65,6 +65,6 @@ class FeaturesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def feature_params
-      params.require(:feature).permit(:title, :product_id)
+      params.require(:feature).permit(:title, :product_id, :content, :content_ar, :image)
     end
 end
