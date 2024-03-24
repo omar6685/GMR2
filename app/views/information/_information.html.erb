@@ -34,4 +34,33 @@
     <%= information.user_id %>
   </p>
 
+  
+  <p>
+    <strong>Organization</strong>
+    <ul>
+      <% information.organizations.each do |organization| %>
+        <li>
+            <p>
+              <strong>Url:</strong>
+              <%= organization.url %>
+            </p>
+
+            <p>
+              <strong>Title:</strong>
+              <%= organization.title %>
+            </p>
+
+            <p>
+              <strong>Image:</strong>
+              <% if organization.image.attached? %>
+                <%= image_tag  organization.image %>
+              <% end %>
+            </p>
+        </li>
+      <% end %>
+    </ul>
+    
+  </p>
+
+
 </div>

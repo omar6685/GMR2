@@ -1,4 +1,7 @@
-<%= form_with(model: information) do |form| %>
+<%= form_with(model: information, data: {
+  controller: "nested-form",
+  nested_form_wrapper_selector_value: '.nested-form-wrapper'
+}) do |form| %>
   <% if information.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(information.errors.count, "error") %> prohibited this information from being saved:</h2>
@@ -41,10 +44,26 @@
     <%= form.text_area :description_ar %>
   </div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
+  <%#   start custum logic here %>
+  <template data-nested-form-target="template">
+    <%= form.fields_for :organizations, Organization.new, child_index: "NEW_RECORD" do |organization_fields| %>
+      <%= render 'information/information_organization_form', f: organization_fields %>
+    <% end %>
+  </template>
+
+  <%= form.fields_for :organizations do |organization_fields| %>
+    <%= render 'information/information_organization_form', f: organization_fields %>
+  <% end %>
+
+
+  <!-- Inserted elements will be injected before that target. -->
+  <div data-nested-form-target="target"></div>
+
+  <button type="button" data-action="nested-form#add">Add History</button>
+
+  <%# end custom logic %>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
 
   <div>
     <%= form.submit %>
