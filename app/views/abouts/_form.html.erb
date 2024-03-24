@@ -1,4 +1,7 @@
-<%= form_with(model: about) do |form| %>
+<%= form_with(model: about, data: {
+  controller: "nested-form",
+  nested_form_wrapper_selector_value: '.nested-form-wrapper'
+}) do |form| %>
   <% if about.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(about.errors.count, "error") %> prohibited this about from being saved:</h2>
@@ -71,6 +74,28 @@
     <%= form.label :image, style: "display: block" %>
     <%= form.file_field :image %>
   </div>
+
+
+
+  <%#   start custum logic here %>
+  <template data-nested-form-target="template">
+    <%= form.fields_for :histories, History.new, child_index: "NEW_RECORD" do |history_fields| %>
+      <%= render 'abouts/about_history_form', f: history_fields %>
+    <% end %>
+  </template>
+
+  <%= form.fields_for :histories do |history_fields| %>
+    <%= render 'abouts/about_history_form', f: history_fields %>
+  <% end %>
+
+
+  <!-- Inserted elements will be injected before that target. -->
+  <div data-nested-form-target="target"></div>
+
+  <button type="button" data-action="nested-form#add">Add History</button>
+
+  <%# end custom logic %>
+
 
   <%= form.hidden_field :user_id, value: current_user.id %>
   

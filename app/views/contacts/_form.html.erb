@@ -142,12 +142,12 @@
   <%#   start custum logic here %>
   <template data-nested-form-target="template">
     <%= form.fields_for :employees, Employee.new, child_index: "NEW_RECORD" do |employee_fields| %>
-      <%= render 'products/product_employee_form', f: employee_fields %>
+      <%= render 'contacts/contact_employee_form', f: employee_fields %>
     <% end %>
   </template>
 
   <%= form.fields_for :employees do |employee_fields| %>
-    <%= render 'products/product_employee_form', f: employee_fields %>
+    <%= render 'contacts/contact_employee_form', f: employee_fields %>
   <% end %>
 
 

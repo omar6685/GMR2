@@ -13,6 +13,7 @@ class AboutsController < ApplicationController
   # GET /abouts/new
   def new
     @about = About.new
+    @about.histories.build
   end
 
   # GET /abouts/1/edit

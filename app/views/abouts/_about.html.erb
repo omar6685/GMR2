@@ -65,4 +65,30 @@
     <%= about.user_id %>
   </p>
 
+
+  <p>
+    <strong>Employees</strong>
+    <ul>
+      <% about.histories.each do |employee| %>
+        <li>
+            <p>
+              <strong>Year:</strong>
+              <%= content.year %>
+            </p>
+
+            <p>
+              <strong>Description:</strong>
+              <%= content.description %>
+            </p>
+
+            <p>
+              <strong>Description Ar:</strong>
+              <%= content.description_ar %>
+            </p>
+        </li>
+      <% end %>
+    </ul>
+    
+  </p>
+
 </div>
