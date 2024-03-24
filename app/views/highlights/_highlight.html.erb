@@ -9,4 +9,19 @@
     <%= highlight.product_id %>
   </p>
 
+  <p>
+    <strong>Content:</strong>
+    <%= highlight.content %>
+  </p>
+
+  <p>
+    <strong>Content ar:</strong>
+    <%= highlight.content_ar %>
+  </p>
+
+  
+  <% if highlight.image.attached? %>
+    <%= image_tag  highlight.image %>
+  <% end %>
+
 </div>

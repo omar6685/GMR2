@@ -65,6 +65,6 @@ class HighlightsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def highlight_params
-      params.require(:highlight).permit(:title, :product_id)
+      params.require(:highlight).permit(:title, :product_id, :content, :content_ar, :image)
     end
 end

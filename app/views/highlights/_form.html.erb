@@ -22,6 +22,21 @@
   </div>
 
   <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.rich_text_area :content %>
+  </div>
+
+  <div>
+    <%= form.label :content_ar, style: "display: block" %>
+    <%= form.rich_text_area :content_ar %>
+  </div>
+
+  <div>
+    <%= form.label :image, style: "display: block" %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
