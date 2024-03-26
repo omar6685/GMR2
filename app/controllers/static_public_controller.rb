@@ -5,19 +5,19 @@ class StaticPublicController < ApplicationController
         @home_video = HomeVideo.last
     end
 
-    def about
+    def about_static
     end
 
-    def contact
+    def contact_static
     end
 
-    def privacy
+    def privacy_static
     end
      
-    def terms
+    def terms_static
     end
 
-    def legal_notice
+    def legal_notice_static
     end
 
 end

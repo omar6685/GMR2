@@ -21,10 +21,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root "static_public#home"
-  get "about", to: "static_public#about"
-  get "contact", to: "static_public#contact"
+  get "about_us", to: "static_public#about"
+  get "contact_us", to: "static_public#contact"
   get "privacy", to: "static_public#privacy"
-  get "terms", to: "static_public#terms"
+  get "terms_and_conditions", to: "static_public#terms"
   get "legal_notice", to: "static_public#legal_notice"
   resources :home_videos , only: [:new, :create, :show]
   resources :home_tests
