@@ -12,6 +12,7 @@ class StaticPublicController < ApplicationController
     end
 
     def privacy
+        @privacy = Privacy.first
     end
      
     def terms
