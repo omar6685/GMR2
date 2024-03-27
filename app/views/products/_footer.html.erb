@@ -1,8 +1,8 @@
 
 <footer>
-    <div class="flex flex-col justify-center mx-auto bg-cover bg-center bg-local shadow-lg" style="background-image: url('<%= asset_path('workers.jpeg') %>');">
+    <div class="flex flex-col justify-center mx-auto bg-cover bg-center bg-local shadow-lg" style="background-image: url('<%= asset_path('hard-working-businessmen.jpg') %>');">
         <div class="mt-20 p-4 sm:p-8 ">
-                  <a href="https://flowbite.com" class="flex items-center justify-center">
+                  <a href="<%= root_us_path %>" class="flex items-center justify-center">
                       <%= image_tag('logo.png', alt: 'logo', class: "w-44	lg:w-64	h-20 lg:h-20") %>
                   </a>
           <h1 href="" class="text-white text-4xl font-bold text-center">THEN DO NOT WAIT ANY LONGER!</h1>
@@ -30,9 +30,9 @@
     <div class="bg-black flex flex-col md:flex-row justify-between px-2 md:px-20 py-3 items-center">
         <div class="flex gap-2">
             <p class="text-white">© 2024 GMR</p>
-            <a href="" class="text-white hover:text-[#3535ff]">legal notice</a>
-            <a href="" class="text-white hover:text-[#3535ff]">Terms and conditions</a>
-            <a href="" class="text-white hover:text-[#3535ff]">privacy</a>
+            <a href="<%= legal_notice_static_path %>" class="text-white hover:text-[#3535ff]">legal notice</a>
+            <a href="<%= terms_and_conditions_path %>" class="text-white hover:text-[#3535ff]">Terms and conditions</a>
+            <a href="<%= privacy_static_path %>" class="text-white hover:text-[#3535ff]">privacy</a>
         </div>
         <div class="flex gap-2">
             <%= link_to root_path do %>

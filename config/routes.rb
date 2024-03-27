@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   root "static_public#home"
   get "about_us", to: "static_public#about"
   get "contact_us", to: "static_public#contact"
-  get "privacy", to: "static_public#privacy"
+  get "privacy_static", to: "static_public#privacy"
   get "terms_and_conditions", to: "static_public#terms"
   get "legal_notice_static", to: "static_public#legal_notice"
   resources :home_videos , only: [:new, :create, :show]
