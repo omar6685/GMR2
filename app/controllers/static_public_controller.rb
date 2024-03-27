@@ -16,6 +16,7 @@ class StaticPublicController < ApplicationController
     end
      
     def terms
+        @term = Term.first
     end
 
     def legal_notice
