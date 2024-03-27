@@ -15,10 +15,10 @@
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>
-  
+
   <div>
     <%= form.label :product_id, "Select Product", style: "display: block" %>
-    <%= form.collection_select :product_id, Product.all, :id, :title, prompt: "Select a product" %>
+    <%= form.collection_select :product_id, Product.all, :id, :name, prompt: "Select a product" %>
   </div>
 
   <div>

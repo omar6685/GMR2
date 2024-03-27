@@ -3,6 +3,18 @@
   <% if product.home_image.attached? %>
     <%= image_tag  product.home_image %>
   <% end %>
+
+  
+  <p>
+    <strong>Name:</strong>
+    <%= product.name %>
+  </p>
+
+  <p>
+    <strong>Name ar:</strong>
+    <%= product.name_ar %>
+  </p>
+  
   <p>
     <strong>Title:</strong>
     <%= product.title %>
