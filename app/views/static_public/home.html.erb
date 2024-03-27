@@ -4,10 +4,81 @@
 
 
 
+<section>
+    <% if @home_video.video.attached? %>
+        <% if @home_video.video.video? %>
+            <video controls autoplay muted class="relative grid w-full bg-black h-[50vh] md:h-[100vh]">
+                <source src="<%= rails_blob_path(@home_video.video) %>" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        <% end %>
+    <% else %>
+      <p>No video uploaded.</p>
+    <% end %>
+</section>
 
 
+<section class="mt-10 mx-2 md:mx-20">
+  <div class=" w-11/12 md:w-2/3">
+    <h1 class="text-lg md:text-4xl	lg:text-5xl font-semibold"><%= @home_test.title %></h1>
+    <p class=" text-center mt-5"><%= @home_test.content %></p>
+  </div>
+</section>
 
 
+<section class="mt-10 mx-3 md:mx-20">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        <% @home_boxes.each do |box| %>
+            <div class=" w-10/12">
+                <h1 class="text-lg md:text-4xl	lg:text-5xl font-bold"><%= box.title %></h1>
+                <p class="mt-5"><%= box.description %></p>
+            </div>
+        <% end %>
+    </div>
+</section>
+
+
+<section class="mt-10 pt-10 px-2 pd:mx-20 bg-black">
+  <div class=" w-11/12 md:w-2/3 m-auto">
+    <p class=" text-center mt-5 text-white">WE OFFER SOLUTIONS FOR THE FOLLOWING</p>
+    <h1 class="text-lg md:text-xl	lg:text-5xl text-center font-semibold text-white">RECYCLING MATERIALS</h1>
+  </div>
+
+  <div class="mt-10">
+    <% @products.each do |product| %>
+        <div class="mt-10">
+            <h1 class="text-lg md:text-xl	lg:text-5xl text-center font-semibold text-white"><%= product.title %></h1>
+            <p class=" text-center mt-5 text-white"><%= product.description %></p>
+            <% if product.home_image.attached? %>
+              <div class="p-10 m-auto">
+                  <li>
+                    <div>
+                        <%= image_tag  product.home_image, class: "m-auto max-h-[600px] w-full h-full max-w-[1200px] object-cover cursor-pointer transition-all duration-500 hover:scale-105", alt: "Img 1", id: "img1" %>
+                    </div>
+                  </li>
+              </div>
+            <% end %>
+        </div>
+    <% end %>
+  </div>
+</section>
+
+
+<section class="mt-10 mb-20 mx-2 md:mx-20">
+  <div class=" w-11/12 md:w-2/3 m-auto">
+    <p class=" text-center mt-5 font-bold"><%= @home_site.title %></p>
+    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-semibold">COMPANY PREMISES</h1>
+  </div>
+
+  <div  class="mt-20">
+    <% if @home_site.image.attached? %>
+      <%= image_tag  @home_site.image, class: "transition-all duration-500 hover:scale-105" %>
+    <% end %>
+  </div>
+</section>
+
+
+<%= render 'footer' %>
 
     <!-- <div id="app" data-v-app="">
         <header class="bg-black">

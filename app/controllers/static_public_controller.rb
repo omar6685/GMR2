@@ -3,6 +3,10 @@ class StaticPublicController < ApplicationController
 
     def home
         @home_video = HomeVideo.last
+        @home_test = HomeTest.last
+        @home_boxes = HomeBox.all
+        @products = Product.all
+        @home_site = HomeSite.last
     end
 
     def about
