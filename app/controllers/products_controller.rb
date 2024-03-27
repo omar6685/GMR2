@@ -8,6 +8,8 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
+    @highlights = Highlight.where(product_id: @product.id)
+    @home_site = HomeSite.first
   end
 
   # GET /products/new

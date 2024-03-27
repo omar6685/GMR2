@@ -1,10 +1,182 @@
+<%= render "header" %>
 <p style="color: green"><%= notice %></p>
 
-<%= render @product %>
+<section>
+    <% if @product.video.attached? %>
+        <% if @product.video.video? %>
+            <video controls autoplay muted class="relative grid w-full bg-black h-[50vh] md:h-[100vh]">
+                <source src="<%= rails_blob_path(@product.video) %>" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        <% end %>
+    <% else %>
+      <p>No video uploaded.</p>
+    <% end %>
+</section>
+<section class="mt-10 mx-2 md:mx-20">
+  <div class=" w-11/12 md:w-2/3 m-auto">
+    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-semibold"><%= @product.title %></h1>
+    <p class=" text-center mt-5"><%= @product.description %></p>
+  </div>
 
-<div>
-  <%= link_to "Edit this product", edit_product_path(@product) %> |
-  <%= link_to "Back to products", products_path %>
+  <div  class="mt-20">
+    <ul>
+      <% @product.features.each do |feature| %>
+        <li class="mt-10">
+          <div class=" grid grid-cols-1 sm:grid-cols-2">
+            <div>
+              <% if feature.image.attached? %>
+                <%= image_tag  feature.image, class: "transition-all duration-500 hover:scale-105" %>
+              <% end %>
+            </div>
+            <div>
+              <%= feature.content %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</section>
 
-  <%= button_to "Destroy this product", @product, method: :delete %>
-</div>
+<section class="mt-10 pt-10 px-2 pd:mx-20 bg-black">
+  <div class=" w-11/12 md:w-2/3 m-auto">
+    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-semibold text-white"><%= @product.image_title %></h1>
+    <p class=" text-center mt-5 text-white"><%= @product.image_description %></p>
+  </div>
+ 
+ 
+    <!-- The Modal -->
+    <div id="modal"
+         class="hidden fixed top-0 left-0 z-80 
+                w-screen h-screen bg-black/70 flex 
+                justify-center items-center">
+ 
+        <!-- The close button -->
+        <a class="fixed z-90 top-6 right-8 
+                  text-white text-5xl font-bold" 
+           href="javascript:void(0)"
+           onclick="closeModal()">
+              ×
+          </a>
+ 
+        <!-- A big image will be displayed here -->
+        <img id="modal-img"
+             class="max-w-[800px] max-h-[600px] object-cover"/>
+    </div>
+
+
+  <div>
+    <ul>
+      <% if @product.images.attached? %>
+        <div class="p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-5 m-auto">
+          <% @product.images.each do |image| %>
+            <li>
+              <div id="<%= dom_id image %>">
+                  <%= image_tag  image, class: "m-auto w-64 h-64 md:w-96 md:h-96 object-cover cursor-pointer transition-all duration-500 hover:scale-105", alt: "Img 1", id: "img1" %>
+              </div>
+            </li>
+          <% end %>
+            <!-- The Modal -->
+            <div id="modal"
+                 class="hidden fixed top-0 left-0 z-80 
+                        w-screen h-screen bg-black/70 flex 
+                        justify-center items-center">
+          
+                <!-- The close button -->
+                <a class="fixed z-90 top-6 right-8 
+                          text-white text-5xl font-bold" 
+                   href="javascript:void(0)"
+                   onclick="closeModal()">
+                      ×
+                  </a>
+          
+                <!-- A big image will be displayed here -->
+                <img id="modal-img"
+                     class="max-w-[800px] max-h-[600px] object-cover"/>
+            </div>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+</section>
+
+<section class="pt-20 px-2 pd:mx-20 bg-black">
+  
+  <div class=" w-11/12 md:w-2/3 m-auto">
+    <h1 class="text-lg md:text-4xl text-white lg:text-5xl text-center font-semibold">MORE HIGHLIGHTS, FOR YOUR SUCCESS</h1>
+  </div>
+
+  <div  class="mt-20 pb-20">
+    <ul>
+      <% @highlights.each do |highlight| %>
+        <li class="mt-10">
+          <div class=" grid grid-cols-1 sm:grid-cols-2 max-w-[1200px] m-auto">
+            <div class=" max-w-[600px]">
+              <% if highlight.image.attached? %>
+                <%= image_tag  highlight.image, class: "w-full" %>
+              <% end %>
+            </div>
+            <div class="text-black bg-white max-w-[600px] w-full px-2 md:px-10 lg:px-20 flex items-center">
+              <%= highlight.content %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+</section>
+
+
+
+
+<section class="mt-10 mb-20 mx-2 md:mx-20">
+  <div class=" w-11/12 md:w-2/3 m-auto">
+    <p class=" text-center mt-5 font-bold"><%= @home_site.title %></p>
+    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-semibold">COMPANY PREMISES</h1>
+  </div>
+
+  <div  class="mt-20">
+    <% if @home_site.image.attached? %>
+      <%= image_tag  @home_site.image, class: "transition-all duration-500 hover:scale-105" %>
+    <% end %>
+  </div>
+</section>
+
+
+<%= render "footer" %>
+
+
+
+    <script>
+         
+          // Get all the img elements in the grid
+        var images = document.querySelectorAll('.grid img');
+ 
+        // Loop through each img element
+        images.forEach(function (img) {
+             
+          // Add a click event listener to each img element
+            img.addEventListener('click', function () {
+                showModal(img.src);
+            });
+        });
+ 
+        // Get the modal by id
+        var modal = document.getElementById("modal");
+ 
+        // Get the modal image tag
+        var modalImg = document.getElementById("modal-img");
+ 
+        // This function is called when a small image is clicked
+        function showModal(src) {
+            modal.classList.remove('hidden');
+            modalImg.src = src;
+        }
+ 
+        // This function is called when the close button is clicked
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+    </script>
