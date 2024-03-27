@@ -13,6 +13,7 @@ class StaticPublicController < ApplicationController
     end
 
     def contact
+        @contact = Contact.first
     end
 
     def privacy

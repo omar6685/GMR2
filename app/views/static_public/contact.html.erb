@@ -1,0 +1,201 @@
+<%= render 'header' %>
+
+<section class="my-10 mx-2 md:mx-20">
+  <div class=" w-11/12 md:w-2/3 m-auto">
+    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-bold"><%= @contact.title %></h1>
+    <p class=" text-center mt-5"><%= @contact.content %></p>
+  </div>
+
+  <div class="my-20 grid grid-cols-1 md:grid-cols-2 gap-[5%]">
+    <div>
+        <% if @contact.image1.attached? %>
+          <%= image_tag  @contact.image1, class: "" %>
+        <% end %>
+        <p class="mt-5 font-bold"><%= @contact.name1 %></p>
+        <p class="italic"><%= @contact.position1 %></p>
+        <div class="flex gap-3 mt-5 items-center">
+            <%= image_tag('phone-black.svg', alt: 'x', class: "w-3 h-3") %>
+            <p class=""><%= @contact.phone1 %></p>
+        </div>
+        <div class="flex gap-3 items-center">
+            <%= image_tag('telegram-black.svg', alt: 'x', class: "w-3 h-3") %>
+            <p class=""><%= @contact.email1 %></p>
+        </div>
+        <div class="flex gap-3 items-center">
+            <%= image_tag('translation.svg', alt: 'x', class: "w-3 h-3") %>
+            <p class=""><%= @contact.language1 %></p>
+        </div>
+        <!-- Accordion item -->
+        <div x-data="{ expanded: false }" class="py-2">
+                    <h2>
+                        <button
+                            id="faqs-title-01"
+                            type="button"
+                            class="flex items-center justify-between w-full text-left font-semibold py-2"
+                            @click="expanded = !expanded"
+                            :aria-expanded="expanded"
+                            aria-controls="faqs-text-01"
+                        >
+                            <span>MY STATMENT</span>
+                            <svg class="fill-indigo-500 shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                                <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                            </svg>
+                        </button>
+                    </h2>
+                    <div
+                        id="faqs-text-01"
+                        role="region"
+                        aria-labelledby="faqs-title-01"
+                        class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                        :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+                        >
+                        <div class="overflow-hidden">
+                            <p class="pb-3">
+                              <%= @contact.statement1 %>
+                            </p>
+                        </div>
+                    </div>
+        </div>                                                                               
+    </div>
+    <div>
+        <% if @contact.image2.attached? %>
+          <%= image_tag  @contact.image1, class: "" %>
+        <% end %>
+        <p class="mt-5 font-bold"><%= @contact.name2 %></p>
+        <p class="italic"><%= @contact.position2 %></p>
+        <div class="flex gap-3 mt-5 items-center">
+            <%= image_tag('phone-black.svg', alt: 'x', class: "w-3 h-3") %>
+            <p class=""><%= @contact.phone2 %></p>
+        </div>
+        <div class="flex gap-3 items-center">
+            <%= image_tag('telegram-black.svg', alt: 'x', class: "w-3 h-3") %>
+            <p class=""><%= @contact.email2 %></p>
+        </div>
+        <div class="flex gap-3 items-center">
+            <%= image_tag('translation.svg', alt: 'x', class: "w-3 h-3") %>
+            <p class=""><%= @contact.language2 %></p>
+        </div>
+
+        <!-- Accordion item -->
+        <div x-data="{ expanded: false }" class="py-2">
+                    <h2>
+                        <button
+                            id="faqs-title-01"
+                            type="button"
+                            class="flex items-center justify-between w-full text-left font-semibold py-2"
+                            @click="expanded = !expanded"
+                            :aria-expanded="expanded"
+                            aria-controls="faqs-text-01"
+                        >
+                            <span>MY STATMENT</span>
+                            <svg class="fill-indigo-500 shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                                <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                            </svg>
+                        </button>
+                    </h2>
+                    <div
+                        id="faqs-text-01"
+                        role="region"
+                        aria-labelledby="faqs-title-01"
+                        class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                        :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+                        >
+                        <div class="overflow-hidden">
+                            <p class="pb-3">
+                              <%= @contact.statement2 %>
+                            </p>
+                        </div>
+                    </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="pt-20 px-2 pd:mx-20 bg-black">
+  <div class="w-11/12 md:w-2/3 m-auto mb-10">
+    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-bold text-white">SALES</h1>
+    <p class=" text-center mt-5 text-white">We are your personal contact for all questions concerning precious metal recycling!</p>
+  </div>
+
+
+  <div class="py-24 grid grid-cols-1  md:grid-cols-3 gap-[5%] md:px-[10%] text-white m-auto">
+    <% @contact.employees.each do |employee| %>
+      <div>
+        <% if employee.image.attached? %>
+          <%= image_tag  employee.image, class: "" %>
+        <% end %>
+        <p class="mt-5 font-bold"><%= employee.name %></p>
+        <p class="italic"><%= employee.position %></p>
+        <div class="flex gap-3 mt-5 items-center">
+            <%= image_tag('phone.svg', alt: 'x', class: "w-3 h-3") %>
+            <p class=""><%= employee.phone %></p>
+        </div>
+        <div class="flex gap-3 items-center">
+            <%= image_tag('telegram.svg', alt: 'x', class: "w-3 h-3") %>
+            <p class=""><%= employee.email %></p>
+        </div>
+        <div class="flex gap-3 items-center">
+            <%= image_tag('translation-white.svg', alt: 'x', class: "w-3 h-3") %>
+            <p class=""><%= employee.language %></p>
+        </div>
+        <!-- Accordion item -->
+        <div x-data="{ expanded: false }" class="py-2">
+                    <h2>
+                        <button
+                            id="faqs-title-01"
+                            type="button"
+                            class="flex items-center justify-between w-full text-left font-semibold py-2"
+                            @click="expanded = !expanded"
+                            :aria-expanded="expanded"
+                            aria-controls="faqs-text-01"
+                        >
+                            <span>MY STATMENT</span>
+                            <svg class="fill-indigo-500 shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                                <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                            </svg>
+                        </button>
+                    </h2>
+                    <div
+                        id="faqs-text-01"
+                        role="region"
+                        aria-labelledby="faqs-title-01"
+                        class="grid text-sm text-white overflow-hidden transition-all duration-300 ease-in-out"
+                        :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+                        >
+                        <div class="overflow-hidden">
+                            <p class="pb-3">
+                              <%= employee.statement %>
+                            </p>
+                        </div>
+                    </div>
+        </div> 
+      </div>
+    <% end %>                                                                              
+  </div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%= render 'footer' %>
