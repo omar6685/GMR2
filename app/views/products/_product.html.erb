@@ -1,4 +1,8 @@
 <div id="<%= dom_id product %>">
+
+  <% if product.home_image.attached? %>
+    <%= image_tag  product.home_image %>
+  <% end %>
   <p>
     <strong>Title:</strong>
     <%= product.title %>

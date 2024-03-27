@@ -5,4 +5,5 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :features, reject_if: :all_blank, allow_destroy: true
   has_many_attached :images
   has_one_attached :video
+  has_one_attached :home_image
 end
