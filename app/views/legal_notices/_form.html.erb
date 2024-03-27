@@ -23,12 +23,12 @@
 
   <div>
     <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
+    <%= form.rich_text_area :content %>
   </div>
 
   <div>
     <%= form.label :content_ar, style: "display: block" %>
-    <%= form.text_area :content_ar %>
+    <%= form.rich_text_area :content_ar %>
   </div>
 
   <%= form.hidden_field :user_id, value: current_user.id %>
