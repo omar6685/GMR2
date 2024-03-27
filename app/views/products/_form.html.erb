@@ -59,6 +59,11 @@
     <%= form.file_field :images, multiple: true %>
   </div>
 
+  <div>
+    <%= form.label :video, style: "display: block" %>
+    <%= form.file_field :video, accept: 'video/*' %>
+  </div>
+
   <%= form.hidden_field :user_id, value: current_user.id %>
 
   
