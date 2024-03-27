@@ -72,6 +72,12 @@
   </p>
 
   <p>
+    <strong>Image2:</strong>
+      <% if contact.image2.attached? %>
+        <%= image_tag  contact.image2 %>
+      <% end %>
+  </p>
+  <p>
     <strong>Name2</strong>
     <%= contact.name2 %>
   </p>
@@ -127,51 +133,51 @@
         <li>
             <p>
               <strong>Name:</strong>
-              <%= content.name %>
+              <%= employee.name %>
             </p>
 
             <p>
               <strong>Name Ar:</strong>
-              <%= content.name_ar %>
+              <%= employee.name_ar %>
             </p>
 
             <p>
               <strong>Position:</strong>
-              <%= content.position %>
+              <%= employee.position %>
             </p>
 
             <p>
               <strong>Position Ar:</strong>
-              <%= content.position_ar %>
+              <%= employee.position_ar %>
             </p>
 
             <p>
               <strong>Phone:</strong>
-              <%= content.phone %>
+              <%= employee.phone %>
             </p>
 
             <p>
               <strong>Email:</strong>
-              <%= content.email %>
+              <%= employee.email %>
             </p>
 
             <p>
               <strong>Language:</strong>
-              <%= content.language %>
+              <%= employee.language %>
             </p>
 
             <p>
               <strong>Statement:</strong>
-              <%= content.statement %>
+              <%= employee.statement %>
             </p>
 
             <p>
               <strong>Statement Ar:</strong>
-              <%= content.statement_ar %>
+              <%= employee.statement_ar %>
             </p>
 
-            <% if content.image.attached? %>
-              <%= image_tag  content.image %>
+            <% if employee.image.attached? %>
+              <%= image_tag  employee.image %>
             <% end %>
         </li>
       <% end %>
