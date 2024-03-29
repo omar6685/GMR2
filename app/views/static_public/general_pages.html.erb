@@ -31,7 +31,11 @@
         <%= link_to "Change video", general_pages_path, class: "text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
    
         <h1 class="text-lg md:text-4xl my-3 font-bold text-black">Contact page:</h1>
-        <%= link_to "Change video", general_pages_path, class: "text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
-   
+        <% contact = Contact.first %>
+        <% if contact.present? %>
+          <%= link_to "Change Contact page", edit_contact_path(contact), class: "text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+        <% else %>
+          <p>No contact found.</p>
+        <% end %>      
    </div>
 </div>

@@ -1,168 +1,173 @@
-<%= form_with(model: contact, data: {
-  controller: "nested-form",
-  nested_form_wrapper_selector_value: '.nested-form-wrapper'
-}) do |form| %>
-  <% if contact.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-
-      <ul>
-        <% contact.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<%= render 'static_public/dash_header' %>
+<div class="p-4 sm:ml-64">
+   <div class="p-4 border-2 flex flex-col border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+    <%= form_with(model: contact, data: {
+      controller: "nested-form",
+      nested_form_wrapper_selector_value: '.nested-form-wrapper'
+    }) do |form| %>
+      <% if contact.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+    
+          <ul>
+            <% contact.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div>
+        <%= form.label :title, style: "display: block" %>
+        <%= form.text_field :title %>
+      </div>
+    
+      <div>
+        <%= form.label :title_ar, style: "display: block" %>
+        <%= form.text_field :title_ar %>
+      </div>
+    
+      <div>
+        <%= form.label :content, style: "display: block" %>
+        <%= form.text_area :content %>
+      </div>
+    
+      <div>
+        <%= form.label :content_ar, style: "display: block" %>
+        <%= form.text_area :content_ar %>
+      </div>
+    
+      <div>
+        <%= form.label :image1, style: "display: block" %>
+        <%= form.file_field :image1 %>
+      </div>
+    
+      <div>
+        <%= form.label :name1, style: "display: block" %>
+        <%= form.text_field :name1 %>
+      </div>
+    
+      <div>
+        <%= form.label :name1_ar, style: "display: block" %>
+        <%= form.text_field :name1_ar %>
+      </div>
+    
+      <div>
+        <%= form.label :position1, style: "display: block" %>
+        <%= form.text_field :position1 %>
+      </div>
+    
+      <div>
+        <%= form.label :position1_ar, style: "display: block" %>
+        <%= form.text_field :position1_ar %>
+      </div>
+    
+      <div>
+        <%= form.label :phone1, style: "display: block" %>
+        <%= form.text_field :phone1 %>
+      </div>
+    
+      
+      <div>
+        <%= form.label :email1, style: "display: block" %>
+        <%= form.text_field :email1 %>
+      </div>
+      
+      <div>
+        <%= form.label :language1, style: "display: block" %>
+        <%= form.text_field :language1 %>
+      </div>
+      
+      <div>
+        <%= form.label :statement1, style: "display: block" %>
+        <%= form.text_field :statement1 %>
+      </div>
+    
+      <div>
+        <%= form.label :statement1_ar, style: "display: block" %>
+        <%= form.text_field :statement1_ar %>
+      </div>
+    
+      <div>
+        <%= form.label :image2, style: "display: block" %>
+        <%= form.file_field :image2 %>
+      </div>
+    
+    
+      <div>
+        <%= form.label :name2, style: "display: block" %>
+        <%= form.text_field :name2 %>
+      </div>
+    
+      <div>
+        <%= form.label :name2_ar, style: "display: block" %>
+        <%= form.text_field :name2_ar %>
+      </div>
+    
+      <div>
+        <%= form.label :position2, style: "display: block" %>
+        <%= form.text_field :position2 %>
+      </div>
+    
+      <div>
+        <%= form.label :position2_ar, style: "display: block" %>
+        <%= form.text_field :position2_ar %>
+      </div>
+    
+      <div>
+        <%= form.label :phone2, style: "display: block" %>
+        <%= form.text_field :phone2 %>
+      </div>
+    
+    
+      <div>
+        <%= form.label :email2, style: "display: block" %>
+        <%= form.text_field :email2 %>
+      </div>
+    
+      <div>
+        <%= form.label :language2, style: "display: block" %>
+        <%= form.text_field :language2 %>
+      </div>
+    
+      <div>
+        <%= form.label :statement2, style: "display: block" %>
+        <%= form.text_field :statement2 %>
+      </div>
+    
+      <div>
+        <%= form.label :statement2_ar, style: "display: block" %>
+        <%= form.text_field :statement2_ar %>
+      </div>
+    
+    
+    
+      <%#   start custum logic here %>
+      <template data-nested-form-target="template">
+        <%= form.fields_for :employees, Employee.new, child_index: "NEW_RECORD" do |employee_fields| %>
+          <%= render 'contacts/contact_employee_form', f: employee_fields %>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :title_ar, style: "display: block" %>
-    <%= form.text_field :title_ar %>
-  </div>
-
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div>
-    <%= form.label :content_ar, style: "display: block" %>
-    <%= form.text_area :content_ar %>
-  </div>
-
-  <div>
-    <%= form.label :image1, style: "display: block" %>
-    <%= form.file_field :image1 %>
-  </div>
-
-  <div>
-    <%= form.label :name1, style: "display: block" %>
-    <%= form.text_field :name1 %>
-  </div>
-
-  <div>
-    <%= form.label :name1_ar, style: "display: block" %>
-    <%= form.text_field :name1_ar %>
-  </div>
-
-  <div>
-    <%= form.label :position1, style: "display: block" %>
-    <%= form.text_field :position1 %>
-  </div>
-
-  <div>
-    <%= form.label :position1_ar, style: "display: block" %>
-    <%= form.text_field :position1_ar %>
-  </div>
-
-  <div>
-    <%= form.label :phone1, style: "display: block" %>
-    <%= form.text_field :phone1 %>
-  </div>
-
-  
-  <div>
-    <%= form.label :email1, style: "display: block" %>
-    <%= form.text_field :email1 %>
-  </div>
-  
-  <div>
-    <%= form.label :language1, style: "display: block" %>
-    <%= form.text_field :language1 %>
-  </div>
-  
-  <div>
-    <%= form.label :statement1, style: "display: block" %>
-    <%= form.text_field :statement1 %>
-  </div>
-
-  <div>
-    <%= form.label :statement1_ar, style: "display: block" %>
-    <%= form.text_field :statement1_ar %>
-  </div>
-
-  <div>
-    <%= form.label :image2, style: "display: block" %>
-    <%= form.file_field :image2 %>
-  </div>
-
-
-  <div>
-    <%= form.label :name2, style: "display: block" %>
-    <%= form.text_field :name2 %>
-  </div>
-
-  <div>
-    <%= form.label :name2_ar, style: "display: block" %>
-    <%= form.text_field :name2_ar %>
-  </div>
-
-  <div>
-    <%= form.label :position2, style: "display: block" %>
-    <%= form.text_field :position2 %>
-  </div>
-
-  <div>
-    <%= form.label :position2_ar, style: "display: block" %>
-    <%= form.text_field :position2_ar %>
-  </div>
-
-  <div>
-    <%= form.label :phone2, style: "display: block" %>
-    <%= form.text_field :phone2 %>
-  </div>
-
-
-  <div>
-    <%= form.label :email2, style: "display: block" %>
-    <%= form.text_field :email2 %>
-  </div>
-
-  <div>
-    <%= form.label :language2, style: "display: block" %>
-    <%= form.text_field :language2 %>
-  </div>
-
-  <div>
-    <%= form.label :statement2, style: "display: block" %>
-    <%= form.text_field :statement2 %>
-  </div>
-
-  <div>
-    <%= form.label :statement2_ar, style: "display: block" %>
-    <%= form.text_field :statement2_ar %>
-  </div>
-
-
-
-  <%#   start custum logic here %>
-  <template data-nested-form-target="template">
-    <%= form.fields_for :employees, Employee.new, child_index: "NEW_RECORD" do |employee_fields| %>
-      <%= render 'contacts/contact_employee_form', f: employee_fields %>
+      </template>
+    
+      <%= form.fields_for :employees do |employee_fields| %>
+        <%= render 'contacts/contact_employee_form', f: employee_fields %>
+      <% end %>
+    
+    
+      <!-- Inserted elements will be injected before that target. -->
+      <div data-nested-form-target="target"></div>
+    
+      <button type="button" data-action="nested-form#add">Add Employee</button>
+    
+      <%# end custom logic %>
+    
+    
+    
+      <%= form.hidden_field :user_id, value: current_user.id %>
+    
+      <div>
+        <%= form.submit %>
+      </div>
     <% end %>
-  </template>
-
-  <%= form.fields_for :employees do |employee_fields| %>
-    <%= render 'contacts/contact_employee_form', f: employee_fields %>
-  <% end %>
-
-
-  <!-- Inserted elements will be injected before that target. -->
-  <div data-nested-form-target="target"></div>
-
-  <button type="button" data-action="nested-form#add">Add Employee</button>
-
-  <%# end custom logic %>
-
-
-
-  <%= form.hidden_field :user_id, value: current_user.id %>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+   </div>
+</div>
