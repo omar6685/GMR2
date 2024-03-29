@@ -10,6 +10,8 @@ class StaticPublicController < ApplicationController
     end
 
     def about
+        @about = About.first
+        @home_site = HomeSite.last
     end
 
     def contact

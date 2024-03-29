@@ -69,21 +69,21 @@
   <p>
     <strong>Employees</strong>
     <ul>
-      <% about.histories.each do |employee| %>
+      <% about.histories.each do |history| %>
         <li>
             <p>
               <strong>Year:</strong>
-              <%= content.year %>
+              <%= history.year %>
             </p>
 
             <p>
               <strong>Description:</strong>
-              <%= content.description %>
+              <%= history.description %>
             </p>
 
             <p>
               <strong>Description Ar:</strong>
-              <%= content.description_ar %>
+              <%= history.description_ar %>
             </p>
         </li>
       <% end %>
