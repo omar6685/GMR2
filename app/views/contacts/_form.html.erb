@@ -141,7 +141,8 @@
       </div>
     
     
-    
+      <h1 class="text-lg md:text-4xl my-3 font-bold text-black">Sales section:</h1>
+
       <%#   start custum logic here %>
       <template data-nested-form-target="template">
         <%= form.fields_for :employees, Employee.new, child_index: "NEW_RECORD" do |employee_fields| %>
@@ -150,7 +151,9 @@
       </template>
     
       <%= form.fields_for :employees do |employee_fields| %>
+        <hr>
         <%= render 'contacts/contact_employee_form', f: employee_fields %>
+        <hr>
       <% end %>
     
     
