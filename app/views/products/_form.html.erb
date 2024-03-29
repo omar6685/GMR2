@@ -1,109 +1,124 @@
-<%= form_with(model: product, data: {
-  controller: "nested-form",
-  nested_form_wrapper_selector_value: '.nested-form-wrapper'
-}) do |form| %>
-  <% if product.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<%= render 'static_public/dash_header' %>
 
-      <ul>
-        <% product.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<div class="p-4 sm:ml-64">
+  <div class="p-4 border-2 flex flex-col border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+    <%= form_with(model: product, data: {
+      controller: "nested-form",
+      nested_form_wrapper_selector_value: '.nested-form-wrapper'
+    }) do |form| %>
+      <% if product.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+    
+          <ul>
+            <% product.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <h1 class="text-lg md:text-4xl my-3 font-bold text-black">Information section:</h1>
+      
+      <div>
+        <%= form.label :video, style: "display: block" %>
+        <%= form.file_field :video, accept: 'video/*' %>
+      </div>
+
+
+      <div>
+        <%= form.label :name, style: "display: block" %>
+        <%= form.text_field :name %>
+      </div>
+    
+    
+      <div>
+        <%= form.label :name_ar, style: "display: block" %>
+        <%= form.text_field :name_ar %>
+      </div>
+    
+      <div>
+        <%= form.label :title, style: "display: block" %>
+        <%= form.text_field :title %>
+      </div>
+    
+      <div>
+        <%= form.label :title_ar, style: "display: block" %>
+        <%= form.text_field :title_ar %>
+      </div>
+    
+      <div>
+        <%= form.label :description, style: "display: block" %>
+        <%= form.text_area :description %>
+      </div>
+    
+      <div>
+        <%= form.label :description_ar, style: "display: block" %>
+        <%= form.text_area :description_ar %>
+      </div>
+      <h1 class="text-lg md:text-4xl my-3 font-bold text-black">Image section:</h1>
+
+      <div>
+        <%= form.label :image_title, style: "display: block" %>
+        <%= form.text_field :image_title %>
+      </div>
+    
+      <div>
+        <%= form.label :image_title_ar, style: "display: block" %>
+        <%= form.text_field :image_title_ar %>
+      </div>
+    
+      <div>
+        <%= form.label :image_description, style: "display: block" %>
+        <%= form.text_area :image_description %>
+      </div>
+    
+      <div>
+        <%= form.label :image_description_ar, style: "display: block" %>
+        <%= form.text_area :image_description_ar %>
+      </div>
+    
+      <div>
+        <%= form.label :images, style: "display: block" %>
+        <%= form.file_field :images, multiple: true %>
+      </div>
+    
+    
+      <div>
+        <%= form.label :home_image, style: "display: block" %>
+        <%= form.file_field :home_image %>
+      </div>
+    
+    
+      <%= form.hidden_field :user_id, value: current_user.id %>
+
+
+      <h1 class="text-lg md:text-4xl my-3 font-bold text-black">Features section:</h1>
+
+      
+      <%#   start custum logic here %>
+      <template data-nested-form-target="template">
+        <%= form.fields_for :features, Feature.new, child_index: "NEW_RECORD" do |feature_fields| %>
+          <%= render 'products/product_feature_form', f: feature_fields %>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-
-  <div>
-    <%= form.label :name_ar, style: "display: block" %>
-    <%= form.text_field :name_ar %>
-  </div>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :title_ar, style: "display: block" %>
-    <%= form.text_field :title_ar %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :description_ar, style: "display: block" %>
-    <%= form.text_area :description_ar %>
-  </div>
-
-  <div>
-    <%= form.label :image_title, style: "display: block" %>
-    <%= form.text_field :image_title %>
-  </div>
-
-  <div>
-    <%= form.label :image_title_ar, style: "display: block" %>
-    <%= form.text_field :image_title_ar %>
-  </div>
-
-  <div>
-    <%= form.label :image_description, style: "display: block" %>
-    <%= form.text_area :image_description %>
-  </div>
-
-  <div>
-    <%= form.label :image_description_ar, style: "display: block" %>
-    <%= form.text_area :image_description_ar %>
-  </div>
-
-  <div>
-    <%= form.label :images, style: "display: block" %>
-    <%= form.file_field :images, multiple: true %>
-  </div>
-
-
-  <div>
-    <%= form.label :home_image, style: "display: block" %>
-    <%= form.file_field :home_image %>
-  </div>
-
-  <div>
-    <%= form.label :video, style: "display: block" %>
-    <%= form.file_field :video, accept: 'video/*' %>
-  </div>
-
-  <%= form.hidden_field :user_id, value: current_user.id %>
-
-  
-  <%#   start custum logic here %>
-  <template data-nested-form-target="template">
-    <%= form.fields_for :features, Feature.new, child_index: "NEW_RECORD" do |feature_fields| %>
-      <%= render 'products/product_feature_form', f: feature_fields %>
+      </template>
+    
+      <%= form.fields_for :features do |feature_fields| %>
+        <hr>
+        <%= render 'products/product_feature_form', f: feature_fields %>
+        <hr>
+      <% end %>
+    
+    
+      <!-- Inserted elements will be injected before that target. -->
+      <div data-nested-form-target="target"></div>
+    
+      <button type="button" data-action="nested-form#add">Add Feature</button>
+    
+      <%# end custom logic %>
+    
+      <div>
+        <%= form.submit %>
+      </div>
     <% end %>
-  </template>
-
-  <%= form.fields_for :features do |feature_fields| %>
-    <%= render 'products/product_feature_form', f: feature_fields %>
-  <% end %>
-
-
-  <!-- Inserted elements will be injected before that target. -->
-  <div data-nested-form-target="target"></div>
-
-  <button type="button" data-action="nested-form#add">Add Feature</button>
-
-  <%# end custom logic %>
-
-  <div>
-    <%= form.submit %>
   </div>
-<% end %>
+</div>
