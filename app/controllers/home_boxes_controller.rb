@@ -25,7 +25,7 @@ class HomeBoxesController < ApplicationController
 
     respond_to do |format|
       if @home_box.save
-        format.html { redirect_to home_box_url(@home_box), notice: "Home box was successfully created." }
+        format.html { redirect_to dashboard_path, notice: "Home box was successfully created." }
         format.json { render :show, status: :created, location: @home_box }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class HomeBoxesController < ApplicationController
   def update
     respond_to do |format|
       if @home_box.update(home_box_params)
-        format.html { redirect_to home_box_url(@home_box), notice: "Home box was successfully updated." }
+        format.html { redirect_to dashboard_path, notice: "Home box was successfully updated." }
         format.json { render :show, status: :ok, location: @home_box }
       else
         format.html { render :edit, status: :unprocessable_entity }

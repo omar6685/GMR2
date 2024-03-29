@@ -1,40 +1,46 @@
-<%= form_with(model: home_box) do |form| %>
-  <% if home_box.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(home_box.errors.count, "error") %> prohibited this home_box from being saved:</h2>
+<%= render 'static_public/dash_header' %>
 
-      <ul>
-        <% home_box.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+<div class="p-4 sm:ml-64">
+  <div class="p-4 border-2 flex flex-col border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+    <%= form_with(model: home_box) do |form| %>
+      <% if home_box.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(home_box.errors.count, "error") %> prohibited this home_box from being saved:</h2>
+    
+          <ul>
+            <% home_box.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div>
+        <%= form.label :title, style: "display: block" %>
+        <%= form.text_field :title %>
+      </div>
+    
+      <div>
+        <%= form.label :title_ar, style: "display: block" %>
+        <%= form.text_field :title_ar %>
+      </div>
+    
+      <div>
+        <%= form.label :description, style: "display: block" %>
+        <%= form.text_area :description %>
+      </div>
+    
+      <div>
+        <%= form.label :description_ar, style: "display: block" %>
+        <%= form.text_area :description_ar %>
+      </div>
+      
+      <%= form.hidden_field :user_id, value: current_user.id %>
+    
+    
+      <div>
+        <%= form.submit %>
+      </div>
+    <% end %>
   </div>
-
-  <div>
-    <%= form.label :title_ar, style: "display: block" %>
-    <%= form.text_field :title_ar %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :description_ar, style: "display: block" %>
-    <%= form.text_area :description_ar %>
-  </div>
-  
-  <%= form.hidden_field :user_id, value: current_user.id %>
-
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

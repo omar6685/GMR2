@@ -1,14 +1,38 @@
-<p style="color: green"><%= notice %></p>
+<%= render 'static_public/dash_header' %>
 
-<h1>Home boxes</h1>
-
-<div id="home_boxes">
-  <% @home_boxes.each do |home_box| %>
-    <%= render home_box %>
-    <p>
-      <%= link_to "Show this home box", home_box %>
-    </p>
-  <% end %>
+<div class="p-4 sm:ml-64">
+  <div class="p-4 border-2 flex flex-col border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+    <p style="color: green"><%= notice %></p>
+    
+    <h1>Home boxes</h1>
+    
+    
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Title
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        <span class="sr-only text-black">Edit</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+              <% @home_boxes.each do |home_box| %>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <%= home_box.title %>
+                    </th>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <%= link_to "Edit", edit_home_box_path(home_box), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %>
+                    </td>
+                  <% end %>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>    
 </div>
-
-<%= link_to "New home box", new_home_box_path %>
