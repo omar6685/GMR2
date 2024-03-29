@@ -28,4 +28,7 @@ class StaticPublicController < ApplicationController
         @legal_notice = LegalNotice.first
     end
 
+    def dashboard
+    end
+
 end

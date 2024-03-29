@@ -1,0 +1,32 @@
+<%= render 'dash_header' %>
+<div class="p-4 sm:ml-64">
+   <div class="p-4 border-2 flex flex-col border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+    
+    <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">7</h5>
+    <p class="font-normal text-gray-700 dark:text-gray-400">Products</p>
+    </div>
+
+
+        <h1 class="text-lg md:text-4xl my-3 font-bold text-black">Video area:</h1>
+        <%= link_to "Change video", new_home_video_path, class: "text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+        
+        <h1 class="text-lg md:text-4xl my-3 font-bold text-black">Text area:</h1>
+        <% last_home_test = HomeTest.last %>
+        <% if last_home_test.present? %>
+          <%= link_to "Change text area", edit_home_test_path(last_home_test), class: "text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+        <% else %>
+          <p>No home tests found.</p>
+        <% end %>
+        <%= link_to "Change features", home_boxes_path, class: "text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+   
+        <h1 class="text-lg md:text-4xl my-3 font-bold text-black">Site area:</h1>
+        <% last_home_site = HomeSite.last %>
+        <% if last_home_site.present? %>
+          <%= link_to "Change text area", edit_home_site_path(last_home_site), class: "text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+        <% else %>
+          <p>No HomeSite found.</p>
+        <% end %>
+   </div>
+</div>
