@@ -25,7 +25,7 @@ class TermsController < ApplicationController
 
     respond_to do |format|
       if @term.save
-        format.html { redirect_to term_url(@term), notice: "Term was successfully created." }
+        format.html { redirect_to dashboard_path, notice: "Term was successfully created." }
         format.json { render :show, status: :created, location: @term }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class TermsController < ApplicationController
   def update
     respond_to do |format|
       if @term.update(term_params)
-        format.html { redirect_to term_url(@term), notice: "Term was successfully updated." }
+        format.html { redirect_to dashboard_path, notice: "Term was successfully updated." }
         format.json { render :show, status: :ok, location: @term }
       else
         format.html { render :edit, status: :unprocessable_entity }
