@@ -6,7 +6,7 @@ class HomeVideosController < ApplicationController
     def create
         @home_video = HomeVideo.new(home_video_params)
         if @home_video.save
-            redirect_to home_video_path(@home_video), notice: 'Home video was successfully created.'
+            redirect_to dashboard_path, notice: 'Home video was successfully created.'
         else
             render :new
         end

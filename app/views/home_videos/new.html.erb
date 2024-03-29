@@ -1,31 +1,37 @@
-<!-- app/views/videos/new.html.erb -->
-<h1>Upload a New Video</h1>
+<%= render 'static_public/dash_header' %>
 
-<%= form_with(model: @home_video, url: home_videos_path, method: :post, local: true, multipart: true) do |form| %>
-  <% if @home_video.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@home_video.errors.count, "error") %> prohibited this video from being saved:</h2>
-
-      <ul>
-        <% @home_video.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<div class="p-4 sm:ml-64">
+   <div class="p-4 border-2 flex flex-col border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+    <!-- app/views/videos/new.html.erb -->
+    <h1>Upload a New Video</h1>
+    
+    <%= form_with(model: @home_video, url: home_videos_path, method: :post, local: true, multipart: true) do |form| %>
+      <% if @home_video.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@home_video.errors.count, "error") %> prohibited this video from being saved:</h2>
+    
+          <ul>
+            <% @home_video.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="field">
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+      </div>
+    
+      <div class="field">
+        <%= form.label :video, "Upload Video" %>
+        <%= form.file_field :video, accept: 'video/*' %>
+      </div>
+        <%= form.hidden_field :user_id, value: current_user.id %>
+    
+      <div class="actions">
+        <%= form.submit "Upload Video" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :video, "Upload Video" %>
-    <%= form.file_field :video, accept: 'video/*' %>
-  </div>
-    <%= form.hidden_field :user_id, value: current_user.id %>
-
-  <div class="actions">
-    <%= form.submit "Upload Video" %>
-  </div>
-<% end %>
+</div>
