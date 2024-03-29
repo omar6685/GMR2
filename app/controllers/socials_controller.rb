@@ -25,7 +25,7 @@ class SocialsController < ApplicationController
 
     respond_to do |format|
       if @social.save
-        format.html { redirect_to social_url(@social), notice: "Social was successfully created." }
+        format.html { redirect_to dashboard_path, notice: "Social was successfully created." }
         format.json { render :show, status: :created, location: @social }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class SocialsController < ApplicationController
   def update
     respond_to do |format|
       if @social.update(social_params)
-        format.html { redirect_to social_url(@social), notice: "Social was successfully updated." }
+        format.html { redirect_to dashboard_path, notice: "Social was successfully updated." }
         format.json { render :show, status: :ok, location: @social }
       else
         format.html { render :edit, status: :unprocessable_entity }
