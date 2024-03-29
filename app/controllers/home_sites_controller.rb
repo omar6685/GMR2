@@ -38,7 +38,7 @@ class HomeSitesController < ApplicationController
   def update
     respond_to do |format|
       if @home_site.update(home_site_params)
-        format.html { redirect_to home_site_url(@home_site), notice: "Home site was successfully updated." }
+        format.html { redirect_to dashboard_path, notice: "Home site was successfully updated." }
         format.json { render :show, status: :ok, location: @home_site }
       else
         format.html { render :edit, status: :unprocessable_entity }
