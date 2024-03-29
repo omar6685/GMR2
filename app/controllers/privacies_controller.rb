@@ -25,7 +25,7 @@ class PrivaciesController < ApplicationController
 
     respond_to do |format|
       if @privacy.save
-        format.html { redirect_to privacy_url(@privacy), notice: "Privacy was successfully created." }
+        format.html { redirect_to dashboard_path, notice: "Privacy was successfully created." }
         format.json { render :show, status: :created, location: @privacy }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class PrivaciesController < ApplicationController
   def update
     respond_to do |format|
       if @privacy.update(privacy_params)
-        format.html { redirect_to privacy_url(@privacy), notice: "Privacy was successfully updated." }
+        format.html { redirect_to dashboard_path, notice: "Privacy was successfully updated." }
         format.json { render :show, status: :ok, location: @privacy }
       else
         format.html { render :edit, status: :unprocessable_entity }
