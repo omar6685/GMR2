@@ -25,7 +25,7 @@ class LegalNoticesController < ApplicationController
 
     respond_to do |format|
       if @legal_notice.save
-        format.html { redirect_to legal_notice_url(@legal_notice), notice: "Legal notice was successfully created." }
+        format.html { redirect_to dashboard_path, notice: "Legal notice was successfully created." }
         format.json { render :show, status: :created, location: @legal_notice }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class LegalNoticesController < ApplicationController
   def update
     respond_to do |format|
       if @legal_notice.update(legal_notice_params)
-        format.html { redirect_to legal_notice_url(@legal_notice), notice: "Legal notice was successfully updated." }
+        format.html { redirect_to dashboard_path, notice: "Legal notice was successfully updated." }
         format.json { render :show, status: :ok, location: @legal_notice }
       else
         format.html { render :edit, status: :unprocessable_entity }
