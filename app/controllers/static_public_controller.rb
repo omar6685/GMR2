@@ -31,4 +31,6 @@ class StaticPublicController < ApplicationController
     def dashboard
     end
 
+    def general_pages
+    end
 end
