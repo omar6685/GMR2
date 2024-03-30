@@ -78,3 +78,4 @@ gem "devise", "~> 4.9"
 gem "rolify"
 gem 'cancancan'
 gem 'cloudinary'
+gem 'rails-i18n', '~> 7.0.0' # For 7.0.0

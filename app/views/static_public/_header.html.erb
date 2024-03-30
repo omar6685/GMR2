@@ -8,7 +8,7 @@
             <div class="flex items-center lg:order-2 ">
                 <div class="group">
                     <button class="mx-2 lg:flex hidden items-center justify-between w-full py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto text-white hover:text-[#3535ff] focus:text-white md:hover:bg-transparent">
-                        <%= t("hello") %>
+                        <%= t("materials") %>
                     </button>
                     <!-- Dropdown menu -->
                     <div class="z-10 hidden group-hover:flex font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute">
@@ -76,7 +76,7 @@
             </div>
 
             <div class="hidden justify-between items-center w-full lg:w-auto lg:order-1 text-center text-base" id="mobile-menu-2">
-                <h1 class="text-white text-3xl"><%= t('materials') %></h1>
+                <h1 class="text-white text-3xl"><%= t("materials") %></h1>
                 <ul class="flex flex-col mt-10 font-medium lg:flex-row lg:space-x-8">
                     <% Product.all.each do |product| %>
                         <li>
