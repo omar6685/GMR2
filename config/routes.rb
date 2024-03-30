@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     resources :home_sites
     resources :home_boxes
     devise_for :users
+    devise_scope :user do
+      get '/users/sign_out' => 'devise/sessions#destroy'
+    end
 
     # Define your application routes here
 
