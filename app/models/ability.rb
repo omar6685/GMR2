@@ -10,6 +10,33 @@ class Ability
 
     if user.admin?
       can :manage, :all
+    elsif user.modrator?
+      can :create, Product
+      can :update, Product 
+      can :destroy, Product
+      can :create, Feature
+      can :update, Feature
+      can :destroy, Feature
+      can :create, Employee
+      can :update, Employee
+      can :destroy, Employee
+      can :create, Highlight
+      can :update, Highlight
+      can :destroy, Highlight
+      can :create, History
+      can :update, History
+      can :destroy, History
+      can :update, Contact
+      can :update, About
+      can :update, Home_box
+      can :update, Home_test
+      can :update, Home_video
+      can :update, Home_site
+      can :update, Legal_notice
+      can :update, Privacy
+      can :update, Term
+      can :update, Social
+      can :read, :all
     else
       cannot :manage, :all
       can :read, :all
