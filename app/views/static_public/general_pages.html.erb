@@ -5,7 +5,7 @@
         <h1 class="text-lg md:text-4xl my-3 font-bold text-black">Privacy page:</h1>
         <% privacy = Privacy.first %>
         <% if privacy.present? %>
-          <%= link_to "Change Privacy page", edit_privacy_path(privacy), class: "text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+          <%= link_to "Change Privacy page", edit_privacy_path(locale: I18n.locale, id: privacy.id), class: "text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
         <% else %>
           <p>No privacy found.</p>
         <% end %>
@@ -13,7 +13,7 @@
         <h1 class="text-lg md:text-4xl my-3 font-bold text-black">Legal notice page:</h1>
         <% legal_notice = LegalNotice.first %>
         <% if legal_notice.present? %>
-          <%= link_to "Change Legal notice page", edit_legal_notice_path(legal_notice), class: "text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+          <%= link_to "Change Legal notice page", edit_legal_notice_path(locale: I18n.locale, id: legal_notice.id ), class: "text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
         <% else %>
           <p>No legal_notice found.</p>
         <% end %>   
@@ -21,7 +21,7 @@
         <h1 class="text-lg md:text-4xl my-3 font-bold text-black">Terms page:</h1>
         <% term = Term.first %>
         <% if term.present? %>
-          <%= link_to "Change Term page", edit_term_path(term), class: "text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+          <%= link_to "Change Term page", edit_term_path(locale: I18n.locale, id: term.id ), class: "text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
         <% else %>
           <p>No term found.</p>
         <% end %>   
@@ -33,7 +33,7 @@
         <h1 class="text-lg md:text-4xl my-3 font-bold text-black">Contact page:</h1>
         <% contact = Contact.first %>
         <% if contact.present? %>
-          <%= link_to "Change Contact page", edit_contact_path(contact), class: "text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+          <%= link_to "Change Contact page", edit_contact_path(locale: I18n.locale, id: contact.id ), class: "text-white w-fit bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
         <% else %>
           <p>No contact found.</p>
         <% end %>      

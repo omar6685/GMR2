@@ -56,7 +56,7 @@
             <% if product.home_image.attached? %>
               <div class="p-10 m-auto">
                   <li>
-                    <a href="<%= product_path(product) %>">
+                    <a href="<%= product_path(locale: I18n.locale, id: product.id) %>">
                         <%= image_tag  product.home_image, class: "m-auto max-h-[600px] w-full h-full max-w-[1200px] object-contain cursor-pointer transition-all duration-500 hover:scale-105", alt: "Img 1", id: "img1" %>
                     </a>
                   </li>

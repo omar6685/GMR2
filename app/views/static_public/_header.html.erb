@@ -15,7 +15,7 @@
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownLargeButton">
                             <% Product.all.each do |product| %>
                                 <li>
-                                    <%= link_to product.name, product, class: "block hover:text-[#3535ff] px-4 py-2 " %>
+                                    <%= link_to product.name, product_path(locale: I18n.locale, id: product.id), class: "block hover:text-[#3535ff] px-4 py-2 " %>
                                 </li>
                             <% end %>
                         </ul>
