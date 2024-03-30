@@ -2,8 +2,8 @@
 
 <section class="my-10 mx-2 md:mx-20">
   <div class=" w-11/12 md:w-2/3 m-auto">
-    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-bold"><%= @contact.title %></h1>
-    <p class=" text-center mt-5"><%= @contact.content %></p>
+    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-bold"><%= localized_attribute(@contact, :title) %></h1>
+    <p class=" text-center mt-5"><%= localized_attribute(@contact, :content) %></p>
   </div>
 
   <div class="my-20 grid grid-cols-1 md:grid-cols-2 gap-[5%]">
@@ -11,8 +11,8 @@
         <% if @contact.image1.attached? %>
           <%= image_tag  @contact.image1, class: "" %>
         <% end %>
-        <p class="mt-5 font-bold"><%= @contact.name1 %></p>
-        <p class="italic"><%= @contact.position1 %></p>
+        <p class="mt-5 font-bold"><%= localized_attribute(@contact, :name1) %></p>
+        <p class="italic"><%= localized_attribute(@contact, :position1) %></p>
         <div class="flex gap-3 mt-5 items-center">
             <%= image_tag('phone-black.svg', alt: 'x', class: "w-3 h-3") %>
             <p class=""><%= @contact.phone1 %></p>
@@ -36,7 +36,7 @@
                             :aria-expanded="expanded"
                             aria-controls="faqs-text-01"
                         >
-                            <span>MY STATMENT</span>
+                            <span><%= t('my_statment') %></span>
                             <svg class="fill-indigo-500 shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
                                 <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
                                 <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
@@ -52,7 +52,7 @@
                         >
                         <div class="overflow-hidden">
                             <p class="pb-3">
-                              <%= @contact.statement1 %>
+                              <%= localized_attribute(@contact, :statement1) %>
                             </p>
                         </div>
                     </div>
@@ -62,8 +62,8 @@
         <% if @contact.image2.attached? %>
           <%= image_tag  @contact.image1, class: "" %>
         <% end %>
-        <p class="mt-5 font-bold"><%= @contact.name2 %></p>
-        <p class="italic"><%= @contact.position2 %></p>
+        <p class="mt-5 font-bold"><%= localized_attribute(@contact, :name2) %></p>
+        <p class="italic"><%= localized_attribute(@contact, :position2) %></p>
         <div class="flex gap-3 mt-5 items-center">
             <%= image_tag('phone-black.svg', alt: 'x', class: "w-3 h-3") %>
             <p class=""><%= @contact.phone2 %></p>
@@ -88,7 +88,7 @@
                             :aria-expanded="expanded"
                             aria-controls="faqs-text-01"
                         >
-                            <span>MY STATMENT</span>
+                            <span><%= t('my_statment') %></span>
                             <svg class="fill-indigo-500 shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
                                 <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
                                 <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
@@ -104,7 +104,7 @@
                         >
                         <div class="overflow-hidden">
                             <p class="pb-3">
-                              <%= @contact.statement2 %>
+                              <%= localized_attribute(@contact, :statement2) %>
                             </p>
                         </div>
                     </div>
@@ -115,8 +115,8 @@
 
 <section class="pt-20 px-2 pd:mx-20 bg-black">
   <div class="w-11/12 md:w-2/3 m-auto mb-10">
-    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-bold text-white">SALES</h1>
-    <p class=" text-center mt-5 text-white">We are your personal contact for all questions concerning precious metal recycling!</p>
+    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-bold text-white"><%= t('sales') %></h1>
+    <p class=" text-center mt-5 text-white"><%= t('sales_description') %></p>
   </div>
 
 
@@ -126,8 +126,8 @@
         <% if employee.image.attached? %>
           <%= image_tag  employee.image, class: "" %>
         <% end %>
-        <p class="mt-5 font-bold"><%= employee.name %></p>
-        <p class="italic"><%= employee.position %></p>
+        <p class="mt-5 font-bold"><%= localized_attribute(employee, :name) %></p>
+        <p class="italic"><%= localized_attribute(employee, :position) %></p>
         <div class="flex gap-3 mt-5 items-center">
             <%= image_tag('phone.svg', alt: 'x', class: "w-3 h-3") %>
             <p class=""><%= employee.phone %></p>
@@ -151,7 +151,7 @@
                             :aria-expanded="expanded"
                             aria-controls="faqs-text-01"
                         >
-                            <span>MY STATMENT</span>
+                            <span><%= t('my_statment') %></span>
                             <svg class="fill-indigo-500 shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
                                 <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
                                 <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
@@ -167,7 +167,7 @@
                         >
                         <div class="overflow-hidden">
                             <p class="pb-3">
-                              <%= employee.statement %>
+                              <%= localized_attribute(employee, :statement) %>
                             </p>
                         </div>
                     </div>

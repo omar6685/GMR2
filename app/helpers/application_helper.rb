@@ -6,4 +6,11 @@ module ApplicationHelper
       'dir=ltr'
     end
   end
+  def localized_attribute(record, attribute)
+    if I18n.locale == :ar
+      record.send("#{attribute}_ar")
+    else
+      record.send(attribute)
+    end
+  end
 end

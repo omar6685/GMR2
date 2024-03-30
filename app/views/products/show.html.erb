@@ -18,8 +18,8 @@
     <% if current_user %>
       <%= button_to "Destroy this Product", @product, method: :delete, class: "text-center mt-5 text-red-700" %>
     <% end %>
-    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-semibold"><%= @product.title %></h1>
-    <p class=" text-center mt-5"><%= @product.description %></p>
+    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-semibold"><%= localized_attribute(@product, :title) %></h1>
+    <p class=" text-center mt-5"><%= localized_attribute(@product, :description) %></p>
   </div>
 
   <div  class="mt-20">
@@ -35,7 +35,7 @@
                   <% end %>
                 </div>
                 <div>
-                  <%= feature.content %>
+                  <%= localized_attribute(feature, :content) %>
                 </div>
               </div>
             </li>
@@ -43,7 +43,7 @@
             <li class="mt-10">
               <div class=" grid grid-cols-1 sm:grid-cols-2">
                 <div>
-                  <%= feature.content %>
+                  <%= localized_attribute(feature, :content) %>
                 </div>
                 <div>
                   <% if feature.image.attached? %>
@@ -61,8 +61,8 @@
 
 <section class="mt-10 pt-10 px-2 pd:mx-20 bg-black">
   <div class=" w-11/12 md:w-2/3 m-auto">
-    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-semibold text-white"><%= @product.image_title %></h1>
-    <p class=" text-center mt-5 text-white"><%= @product.image_description %></p>
+    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-semibold text-white"><%= localized_attribute(@product, :image_title) %></h1>
+    <p class=" text-center mt-5 text-white"><%= localized_attribute(@product, :image_description) %></p>
   </div>
  
  
@@ -124,7 +124,7 @@
 <section class="pt-20 px-2 pd:mx-20 bg-black">
   
   <div class=" w-11/12 md:w-2/3 m-auto">
-    <h1 class="text-lg md:text-4xl text-white lg:text-5xl text-center font-semibold">MORE HIGHLIGHTS, FOR YOUR SUCCESS</h1>
+    <h1 class="text-lg md:text-4xl text-white lg:text-5xl text-center font-semibold"><%= t("highlight_description") %></h1>
   </div>
 
   <div  class="mt-20 pb-20">
@@ -140,7 +140,7 @@
                   <% end %>
                 </div>
                 <div class="text-black bg-white max-w-[600px] w-full px-2 md:px-10 lg:px-20 flex items-center">
-                  <%= highlight.content %>
+                  <%= localized_attribute(highlight, :content) %>
                 </div>
               </div>
             </li>
@@ -148,7 +148,7 @@
             <li class="">
               <div class=" grid grid-cols-1 sm:grid-cols-2 max-w-[1200px] m-auto">
                 <div class="text-black bg-white max-w-[600px] w-full px-2 md:px-10 lg:px-20 flex items-center">
-                  <%= highlight.content %>
+                  <%= localized_attribute(highlight, :content) %>
                 </div>
                 <div class=" max-w-[600px]">
                   <% if highlight.image.attached? %>
@@ -170,8 +170,8 @@
 
 <section class="mt-10 mb-20 mx-2 md:mx-20">
   <div class=" w-11/12 md:w-2/3 m-auto">
-    <p class=" text-center mt-5 font-bold"><%= @home_site.title %></p>
-    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-semibold">COMPANY PREMISES</h1>
+    <p class=" text-center mt-5 font-bold"><%= localized_attribute(@home_site, :title) %></p>
+    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-semibold"><%= t("company_premises") %></h1>
   </div>
 
   <div  class="mt-20">

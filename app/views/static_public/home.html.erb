@@ -20,8 +20,8 @@
 
 <section class="mt-10 mx-2 md:mx-20">
   <div class=" w-11/12 md:w-2/3">
-    <h1 class="text-lg md:text-4xl	lg:text-5xl font-semibold"><%= @home_test.title %></h1>
-    <p class=" text-center mt-5"><%= @home_test.content %></p>
+    <h1 class="text-lg md:text-4xl	lg:text-5xl font-semibold"><%= localized_attribute(@home_test, :title) %></h1>
+    <p class=" text-center mt-5"><%= localized_attribute(@home_test, :content) %></p>
   </div>
 </section>
 
@@ -30,8 +30,8 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         <% @home_boxes.each do |box| %>
             <div class=" w-10/12">
-                <h1 class="text-lg md:text-4xl	lg:text-5xl font-bold"><%= box.title %></h1>
-                <p class="mt-5"><%= box.description %></p>
+                <h1 class="text-lg md:text-4xl	lg:text-5xl font-bold"><%= localized_attribute(box, :title) %></h1>
+                <p class="mt-5"><%= localized_attribute(box, :description) %></p>
             </div>
         <% end %>
     </div>
@@ -40,15 +40,15 @@
 
 <section class="mt-10 pt-10 px-2 pd:mx-20 bg-black">
   <div class=" w-11/12 md:w-2/3 m-auto">
-    <p class=" text-center mt-5 text-white">WE OFFER SOLUTIONS FOR THE FOLLOWING</p>
-    <h1 class="text-lg md:text-xl	lg:text-5xl text-center font-semibold text-white">RECYCLING MATERIALS</h1>
+    <p class=" text-center mt-5 text-white"><%= t("product_description") %></p>
+    <h1 class="text-lg md:text-xl	lg:text-5xl text-center font-semibold text-white"><%= t("product_title") %></h1>
   </div>
 
   <div class="mt-10">
     <% @products.each do |product| %>
         <div class="mt-10">
-            <h1 class="text-lg md:text-xl	lg:text-5xl text-center font-semibold text-white"><%= product.title %></h1>
-            <p class=" text-center mt-5 text-white"><%= product.description %></p>
+            <h1 class="text-lg md:text-xl	lg:text-5xl text-center font-semibold text-white"><%= localized_attribute(product, :title) %></h1>
+            <p class=" text-center mt-5 text-white"><%= localized_attribute(product, :description) %></p>
             <% if product.home_image.attached? %>
               <div class="p-10 m-auto">
                   <li>
@@ -66,8 +66,8 @@
 
 <section class="mt-10 mb-20 mx-2 md:mx-20">
   <div class=" w-11/12 md:w-2/3 m-auto">
-    <p class=" text-center mt-5 font-bold"><%= @home_site.title %></p>
-    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-semibold">COMPANY PREMISES</h1>
+    <p class=" text-center mt-5 font-bold"><%= localized_attribute(@home_site, :title) %></p>
+    <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-semibold"><%= t("company_premises") %></h1>
   </div>
 
   <div  class="mt-20">

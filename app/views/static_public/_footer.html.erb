@@ -30,21 +30,22 @@
     <div class="bg-black flex flex-col md:flex-row justify-between px-2 md:px-20 py-3 items-center">
         <div class="flex gap-2">
             <p class="text-white">© 2024 GMR</p>
-            <a href="<%= legal_notice_static_path %>" class="text-white hover:text-[#3535ff]">legal notice</a>
-            <a href="<%= terms_and_conditions_path %>" class="text-white hover:text-[#3535ff]">Terms and conditions</a>
-            <a href="<%= privacy_static_path %>" class="text-white hover:text-[#3535ff]">privacy</a>
+            <a href="<%= legal_notice_static_path %>" class="text-white hover:text-[#3535ff]"><%= t("leagal_notice") %></a>
+            <a href="<%= terms_and_conditions_path %>" class="text-white hover:text-[#3535ff]"><%= t("privacy_policy") %></a>
+            <a href="<%= privacy_static_path %>" class="text-white hover:text-[#3535ff]"><%= t("terms_of_use") %></a>
         </div>
         <div class="flex gap-2">
-            <%= link_to root_path do %>
+            <% social = Social.first %>
+            <%= link_to social.x do %>
                 <%= image_tag('x.svg', alt: 'x', class: "w-3 h-3") %>
             <% end %>
-            <%= link_to root_path do %>
+            <%= link_to social.faacebook do %>
                 <%= image_tag('facebook.svg', alt: 'facebook', class: "w-3 h-3") %>
             <% end %>
-            <%= link_to root_path do %>
+            <%= link_to social.instgram do %>
                 <%= image_tag('instagram.svg', alt: 'instagram', class: "w-3 h-3") %>
             <% end %>
-            <%= link_to root_path do %>
+            <%= link_to social.linkind do %>
                 <%= image_tag('linkedin.svg', alt: 'linkedin', class: "w-3 h-3") %>
             <% end %>
         </div>
