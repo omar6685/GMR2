@@ -15,6 +15,9 @@
 </section>
 <section class="mt-10 mx-2 md:mx-20">
   <div class=" w-11/12 md:w-2/3 m-auto">
+    <% if current_user.has_role?(:admin) %>
+      <%= button_to "Destroy this activity table", @product, method: :delete, class: "text-center mt-5 text-red-700" %>
+    <% end %>
     <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-semibold"><%= @product.title %></h1>
     <p class=" text-center mt-5"><%= @product.description %></p>
   </div>
