@@ -4,7 +4,7 @@
 <section>
     <% if @product.video.attached? %>
         <% if @product.video.video? %>
-            <video controls autoplay muted loop class="relative grid object-cover w-full bg-black h-[50vh] md:h-[100vh]">
+            <video controls autoplay muted loop class="relative grid object-contain sm:object-cover w-full bg-black h-auto md:h-[100vh]">
                 <source src="<%= rails_blob_path(@product.video) %>" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
