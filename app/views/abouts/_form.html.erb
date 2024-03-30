@@ -1,4 +1,4 @@
-<%= form_with(model: about, data: {
+<%= form_with(model: about, url: about.persisted? ? about_path(locale: I18n.locale, id: about.id) : abouts_path(locale: I18n.locale), data: { 
   controller: "nested-form",
   nested_form_wrapper_selector_value: '.nested-form-wrapper'
 }) do |form| %>

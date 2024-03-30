@@ -1,4 +1,4 @@
-<%= form_with(model: logo) do |form| %>
+<%= form_with(model: logo, url: logo.persisted? ? logo_path(locale: I18n.locale, id: logo.id) : logos_path(locale: I18n.locale)) do |form| %>
   <% if logo.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(logo.errors.count, "error") %> prohibited this logo from being saved:</h2>

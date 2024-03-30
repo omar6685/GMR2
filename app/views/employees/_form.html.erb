@@ -1,4 +1,4 @@
-<%= form_with(model: employee) do |form| %>
+<%= form_with(model: employee, url: employee.persisted? ? employee_path(locale: I18n.locale, id: employee.id) : employees_path(locale: I18n.locale)) do |form| %>
   <% if employee.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
