@@ -7,7 +7,7 @@
 <section>
     <% if @home_video.video.attached? %>
         <% if @home_video.video.video? %>
-            <video controls autoplay muted class="relative grid w-full bg-black h-[50vh] md:h-[100vh]">
+            <video controls autoplay muted class="relative grid object-contain w-full bg-black h-[50vh] md:h-[100vh]">
                 <source src="<%= rails_blob_path(@home_video.video) %>" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -53,7 +53,7 @@
               <div class="p-10 m-auto">
                   <li>
                     <div>
-                        <%= image_tag  product.home_image, class: "m-auto max-h-[600px] w-full h-full max-w-[1200px] object-cover cursor-pointer transition-all duration-500 hover:scale-105", alt: "Img 1", id: "img1" %>
+                        <%= image_tag  product.home_image, class: "m-auto max-h-[600px] w-full h-full max-w-[1200px] object-contain cursor-pointer transition-all duration-500 hover:scale-105", alt: "Img 1", id: "img1" %>
                     </div>
                   </li>
               </div>
