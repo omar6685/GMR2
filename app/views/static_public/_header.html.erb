@@ -8,7 +8,7 @@
             <div class="flex items-center lg:order-2 ">
                 <div class="group">
                     <button class="mx-2 lg:flex hidden items-center justify-between w-full py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto text-white hover:text-[#3535ff] focus:text-white md:hover:bg-transparent">
-                        MATERIALS 
+                        <%= t("hello") %>
                     </button>
                     <!-- Dropdown menu -->
                     <div class="z-10 hidden group-hover:flex font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute">
@@ -23,14 +23,14 @@
                 </div>
                 <div class="group">
                     <button class="mx-2 lg:flex hidden items-center justify-between w-full py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto text-white hover:text-[#3535ff] focus:text-white md:hover:bg-transparent">
-                        COMPANY 
+                        <%= t('company') %> 
                     </button>
                     <!-- Dropdown menu -->
                     <div class="z-10 hidden group-hover:flex font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownLargeButton">
                             <li>
-                                <a href="#" class="block hover:text-[#3535ff] px-4 py-2 ">About Us</a>
-                                <a href="<%= contact_us_path %>" class="block hover:text-[#3535ff] px-4 py-2 ">Contact Us</a>
+                                <a href="#" class="block hover:text-[#3535ff] px-4 py-2 "><%= t('about_us') %></a>
+                                <a href="<%= contact_us_path %>" class="block hover:text-[#3535ff] px-4 py-2 "><%= t('contact_us') %></a>
                             </li>
                         </ul>
                     </div>
@@ -76,17 +76,19 @@
             </div>
 
             <div class="hidden justify-between items-center w-full lg:w-auto lg:order-1 text-center text-base" id="mobile-menu-2">
-                <h1 class="text-white text-3xl">Materials</h1>
+                <h1 class="text-white text-3xl"><%= t('materials') %></h1>
                 <ul class="flex flex-col mt-10 font-medium lg:flex-row lg:space-x-8">
-                    <li class="">
-                        <a href="#" class="block mb-4 w-[280px] bg-[#ffffff1a] rounded-lg m-auto p-4 text-white " aria-current="page">HomeHome HomeHome</a>
-                    </li>
+                    <% Product.all.each do |product| %>
+                        <li>
+                            <%= link_to product.name, product_path(locale: I18n.locale, id: product.id), class: "block mb-4 w-[280px] bg-[#ffffff1a] rounded-lg m-auto p-4 text-white" %>
+                        </li>
+                    <% end %>
                 </ul>
-                <h1 class="text-white text-3xl">Company</h1>
+                <h1 class="text-white text-3xl"><%= t('company') %></h1>
                 <ul class="flex flex-col mt-10 font-medium lg:flex-row lg:space-x-8">
                     <li class="">
-                        <a href="<%= about_us_path %>" class="block mb-4 w-[280px] bg-[#ffffff1a] rounded-lg m-auto p-4 text-white " aria-current="page">About us</a>
-                        <a href="<%= contact_us_path %>" class="block mb-4 w-[280px] bg-[#ffffff1a] rounded-lg m-auto p-4 text-white " aria-current="page">Contact us</a>
+                        <a href="<%= about_us_path %>" class="block mb-4 w-[280px] bg-[#ffffff1a] rounded-lg m-auto p-4 text-white " aria-current="page"><%= t('about_us') %></a>
+                        <a href="<%= contact_us_path %>" class="block mb-4 w-[280px] bg-[#ffffff1a] rounded-lg m-auto p-4 text-white " aria-current="page"><%= t('contact_us') %></a>
                     </li>
                 </ul>
                 <ul class="flex flex-col mt-20 font-medium lg:flex-row lg:space-x-8">

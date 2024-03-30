@@ -1,3 +1,6 @@
-
-en:
-  hello: "أهلا بالعالم"
+ar:
+  hello: "مرحبا"
+  materials: "مواد"
+  company: "شركة"
+  about_us: "معلومات عنا"
+  contact_us: "اتصل بنا"
