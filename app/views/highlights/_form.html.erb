@@ -1,42 +1,43 @@
-<%= form_with(model: highlight) do |form| %>
-  <% if highlight.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(highlight.errors.count, "error") %> prohibited this highlight from being saved:</h2>
+<%= render 'static_public/dash_header' %>
 
-      <ul>
-        <% highlight.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+<div class="p-4 sm:ml-64">
+  <div class="p-4 border-2 flex flex-col border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+    <%= form_with(model: highlight) do |form| %>
+      <% if highlight.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(highlight.errors.count, "error") %> prohibited this highlight from being saved:</h2>
+    
+          <ul>
+            <% highlight.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div>
+        <%= form.label :product_id, "Select Product", style: "display: block" %>
+        <%= form.collection_select :product_id, Product.all, :id, :name, prompt: "Select a product" %>
+      </div>
+    
+      <div>
+        <%= form.label :content, style: "display: block" %>
+        <%= form.rich_text_area :content %>
+      </div>
+    
+      <div>
+        <%= form.label :content_ar, style: "display: block" %>
+        <%= form.rich_text_area :content_ar %>
+      </div>
+    
+      <div>
+        <%= form.label :image, style: "display: block" %>
+        <%= form.file_field :image %>
+      </div>
+    
+      <div>
+        <%= form.submit %>
+      </div>
+    <% end %>
   </div>
-
-  <div>
-    <%= form.label :product_id, "Select Product", style: "display: block" %>
-    <%= form.collection_select :product_id, Product.all, :id, :name, prompt: "Select a product" %>
-  </div>
-
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.rich_text_area :content %>
-  </div>
-
-  <div>
-    <%= form.label :content_ar, style: "display: block" %>
-    <%= form.rich_text_area :content_ar %>
-  </div>
-
-  <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
