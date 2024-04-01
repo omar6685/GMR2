@@ -5,12 +5,32 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @products = Product.all
+    set_meta_tags title: "Products",
+                    description: "GMR Recycling specializes in recycling and metal recovery. At GMR, we
+                    strive to achieve the highest standards in preserving the environment and natural resources.
+                    We are also keen to use the latest clean technology in order to recover metals and raise
+                    awareness about the importance of recovering metals in a correct and environmentally friendly
+                    manner. We also explain to you the company’s most important activities and its products of
+                    recovered metals. We thank you for visiting our website and learning more about the
+                    importance of recycling lead-acid batteries and recovering metals.",
+                    keywords: "products, services, recycling, metal, recovery, environment, technology",
+                    og: {
+                        title: "Products",
+                        description: :description,
+                    }
   end
 
   # GET /products/1 or /products/1.json
   def show
     @highlights = Highlight.where(product_id: @product.id)
     @home_site = HomeSite.first
+    set_meta_tags title: @product.title,
+                    description: @product.description,
+                    keywords: "products, services, recycling, metal, recovery, environment, technology",
+                    og: {
+                        title: @product.title,
+                        description: @product.description,
+                    }
   end
 
   # GET /products/new

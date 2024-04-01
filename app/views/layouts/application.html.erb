@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html <%= rtl_attribute_if_arabic_locale %> lang="<%= I18n.locale %>">
   <head>
-    <title>Gmrr</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +9,30 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "actiontext", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= display_meta_tags site: "GMR",
+      title: "GMR",
+      description: "GMR Recycling specializes in recycling and metal recovery. At GMR, we 
+        strive to achieve the highest standards in preserving the environment and natural resources. 
+        We are also keen to use the latest clean technology in order to recover metals and raise 
+        awareness about the importance of recovering metals in a correct and environmentally friendly 
+        manner. We also explain to you the company’s most important activities and its products of 
+        recovered metals. We thank you for visiting our website and learning more about the 
+        importance of recycling lead-acid batteries and recovering metals.
+        ",
+      keywords: "GMR, Recycling, Metal Recovery, Environment, Natural Resources, Clean Technology",
+      icon: [
+        { href: image_url('logo.png') },
+        { href: image_url('logo.png'), rel: 'apple-touch-icon', sizes: '180x180' }
+      ],
+      image: image_url('logo.png'),
+      og: {
+        title: :title,
+        description: :description,
+        type: 'website',
+        url: 'https://www.gmr-recycling.com',
+        image: image_url('logo.png'),
+      }
+    %>
   </head>
 
   <body>
