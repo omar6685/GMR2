@@ -3,7 +3,9 @@
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <%= image_tag('phone.svg', alt: 'logo', class: "lg:hidden flex items-center w-6	h-7") %>
             <a href="<%= root_path %>" class="flex items-center">
-                <%= image_tag('logo.png', alt: 'logo', class: "w-44	lg:w-64	h-20 lg:h-20") %>
+                <% if Logo.first.logo.attached? %>
+                  <%= image_tag  Logo.first.logo, alt: 'logo', class: "w-44 lg:w-64 h-20 lg:h-20" %>
+                <% end %>                      
             </a>
             <div class="flex items-center lg:order-2 ">
                 <div class="group">
