@@ -36,18 +36,34 @@
         </div>
         <div class="flex gap-2">
             <% social = Social.first %>
-            <%= link_to social.x do %>
+            <% if social.x.include?('http://') || social.x.include?('https://') %>
+              <a href="<%= social.x %>">
+            <% else %>
+              <a href="http://<%= social.x %>">
+            <% end %>
                 <%= image_tag('x.svg', alt: 'x', class: "w-3 h-3") %>
+            </a>
+            <% if social.faacebook.include?('http://') || social.faacebook.include?('https://') %>
+              <a href="<%= social.faacebook %>">
+            <% else %>
+              <a href="http://<%= social.faacebook %>">
             <% end %>
-            <%= link_to social.faacebook do %>
                 <%= image_tag('facebook.svg', alt: 'facebook', class: "w-3 h-3") %>
-            <% end %>
-            <%= link_to social.instgram do %>
+            </a>
+            <% if social.instgram.include?('http://') || social.instgram.include?('https://') %>
+              <a href="<%= social.instgram %>">
+            <% else %>
+              <a href="http://<%= social.instgram %>">
+            <% end %>            
                 <%= image_tag('instagram.svg', alt: 'instagram', class: "w-3 h-3") %>
-            <% end %>
-            <%= link_to social.linkind do %>
+            </a>
+            <% if social.linkind.include?('http://') || social.linkind.include?('https://') %>
+              <a href="<%= social.linkind %>">
+            <% else %>
+              <a href="http://<%= social.linkind %>">
+            <% end %>                      
                 <%= image_tag('linkedin.svg', alt: 'linkedin', class: "w-3 h-3") %>
-            <% end %>
+            </a>
         </div>
     </div>
 </footer>
