@@ -16,6 +16,11 @@
     
     
       <%= form.hidden_field :user_id, value: current_user.id %>
+
+      <div>
+        <%= form.label :logo, style: "display: block" %>
+        <%= form.file_field :logo, accept: 'image/png,image/jpeg,image/jpg' %>
+      </div>
     
       <div>
         <%= form.label :image, style: "display: block" %>

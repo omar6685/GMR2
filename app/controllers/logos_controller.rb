@@ -65,6 +65,6 @@ class LogosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def logo_params
-      params.require(:logo).permit(:title, :user_id, :image, :description, :description_ar)
+      params.require(:logo).permit(:title, :user_id, :image, :description, :description_ar, :logo)
     end
 end
