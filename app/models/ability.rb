@@ -36,6 +36,7 @@ class Ability
       can :update, Privacy
       can :update, Term
       can :update, Social
+      can :update, Logo
       can :read, :all
     else
       cannot :manage, :all

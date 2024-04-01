@@ -25,7 +25,7 @@ class LogosController < ApplicationController
 
     respond_to do |format|
       if @logo.save
-        format.html { redirect_to logo_url(@logo), notice: "Logo was successfully created." }
+        format.html { redirect_to dashboard_path, notice: "Logo was successfully created." }
         format.json { render :show, status: :created, location: @logo }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class LogosController < ApplicationController
   def update
     respond_to do |format|
       if @logo.update(logo_params)
-        format.html { redirect_to logo_url(@logo), notice: "Logo was successfully updated." }
+        format.html { redirect_to dashboard_path, notice: "Logo was successfully updated." }
         format.json { render :show, status: :ok, location: @logo }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,6 +65,6 @@ class LogosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def logo_params
-      params.require(:logo).permit(:title, :user_id, :image)
+      params.require(:logo).permit(:title, :user_id, :image, :description, :description_ar)
     end
 end
