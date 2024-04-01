@@ -80,3 +80,4 @@ gem 'cancancan'
 gem 'cloudinary'
 gem 'rails-i18n', '~> 7.0.0' # For 7.0.0
 gem "meta-tags"
+gem 'sitemap_generator'
