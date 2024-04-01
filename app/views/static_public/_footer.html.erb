@@ -1,29 +1,15 @@
 
 <footer>
     <div class="flex flex-col justify-center mx-auto bg-cover bg-center bg-local shadow-lg" style="background-image: url('<%= asset_path('hard-working-businessmen.jpg') %>');">
-        <div class="mt-20 p-4 sm:p-8 ">
+        <div class="mt-20 p-4 sm:p-8 trix-parent">
                   <a href="<%= root_path %>" class="flex items-center justify-center">
-                      <%= image_tag('logo.png', alt: 'logo', class: "w-44	lg:w-64	h-20 lg:h-20") %>
+                    <% if Logo.first.image.attached? %>
+                      <%= image_tag  Logo.first.image, alt: 'logo', class: "w-44 lg:w-64 h-20 lg:h-20" %>
+                    <% end %>                      
                   </a>
-          <h1 href="" class="text-white text-4xl font-bold text-center">THEN DO NOT WAIT ANY LONGER!</h1>
+                  <% logo = Logo.first %>
           <p class="mt-4 font-serif text-base italic leading-7 text-white text-center">
-            
-            Just do what our customers have been doing for decades and what has made us what we are today!
-
-            <br>
-            <br>
-            Just do what our customers have been doing for decades and what has made us what we are today!
-
-            <br>
-            <br>
-            Just do what our customers have been doing for decades and what has made us what we are today!
-
-            <br>
-            <br>
-            Just do what our customers have been doing for decades and what has made us what we are today!
-
-            <br>
-            <br>
+            <%= localized_attribute(logo, :description) %>
           </p>
         </div>
     </div>
@@ -67,3 +53,23 @@
         </div>
     </div>
 </footer>
+<script>
+    // Wait for the DOM content to be fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+    // Get all elements with class "trix-content"
+    const trixContents = document.querySelectorAll('.trix-content');
+
+    // Loop through each trix-content element
+    trixContents.forEach(function(trixContent) {
+        // Check if the parent element has the specified classes
+        const parentElement = trixContent.closest('.trix-parent');
+
+        // If the parent element exists, add the "text-center" class to the trix-content element
+        if (parentElement) {
+            trixContent.classList.add('text-center');
+            trixContent.classList.add('text-white');
+        }
+    });
+});
+
+</script>
