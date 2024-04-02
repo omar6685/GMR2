@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "actiontext", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <meta name="turbo-visit-control" content="reload"> <!-- fix JS issues -->
     <%= display_meta_tags site: "GMR",
       title: "GMR",
       description: "GMR Recycling specializes in recycling and metal recovery. At GMR, we 
@@ -48,7 +49,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script>
       document.addEventListener("turbo:load", function() {
           const trixContents = document.querySelectorAll('.trix-content');
