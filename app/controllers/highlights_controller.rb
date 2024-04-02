@@ -25,7 +25,7 @@ class HighlightsController < ApplicationController
 
     respond_to do |format|
       if @highlight.save
-        format.html { redirect_to highlight_url(@highlight), notice: "Highlight was successfully created." }
+        format.html { redirect_to dashboard_path, notice: "Highlight was successfully created." }
         format.json { render :show, status: :created, location: @highlight }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class HighlightsController < ApplicationController
   def update
     respond_to do |format|
       if @highlight.update(highlight_params)
-        format.html { redirect_to highlight_url(@highlight), notice: "Highlight was successfully updated." }
+        format.html { redirect_to dashboard_path, notice: "Highlight was successfully updated." }
         format.json { render :show, status: :ok, location: @highlight }
       else
         format.html { render :edit, status: :unprocessable_entity }
