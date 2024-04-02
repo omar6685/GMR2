@@ -17,22 +17,22 @@
     
       <div>
         <%= form.label :title, style: "display: block" %>
-        <%= form.text_field :title %>
+        <%= form.text_field :title, required: true %>
       </div>
     
       <div>
         <%= form.label :title_ar, style: "display: block" %>
-        <%= form.text_field :title_ar %>
+        <%= form.text_field :title_ar, required: true %>
       </div>
     
       <div>
         <%= form.label :description, style: "display: block" %>
-        <%= form.text_area :description %>
+        <%= form.text_area :description, required: true %>
       </div>
     
       <div>
         <%= form.label :description_ar, style: "display: block" %>
-        <%= form.text_area :description_ar %>
+        <%= form.text_area :description_ar, required: true %>
       </div>
       
       <%= form.hidden_field :user_id, value: current_user.id %>

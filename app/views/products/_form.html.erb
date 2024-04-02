@@ -21,71 +21,71 @@
       
       <div>
         <%= form.label :video, style: "display: block" %>
-        <%= form.file_field :video, accept: 'video/*' %>
+        <%= form.file_field :video, accept: 'video/*', required: true %>
       </div>
 
 
       <div>
         <%= form.label :name, style: "display: block" %>
-        <%= form.text_field :name %>
+        <%= form.text_field :name, required: true %>
       </div>
     
     
       <div>
         <%= form.label :name_ar, style: "display: block" %>
-        <%= form.text_field :name_ar %>
+        <%= form.text_field :name_ar, required: true %>
       </div>
     
       <div>
         <%= form.label :title, style: "display: block" %>
-        <%= form.text_field :title %>
+        <%= form.text_field :title, required: true %>
       </div>
     
       <div>
         <%= form.label :title_ar, style: "display: block" %>
-        <%= form.text_field :title_ar %>
+        <%= form.text_field :title_ar, required: true %>
       </div>
     
       <div>
         <%= form.label :description, style: "display: block" %>
-        <%= form.text_area :description %>
+        <%= form.text_area :description, required: true %>
       </div>
     
       <div>
         <%= form.label :description_ar, style: "display: block" %>
-        <%= form.text_area :description_ar %>
+        <%= form.text_area :description_ar, required: true %>
       </div>
       <h1 class="text-lg md:text-4xl my-3 font-bold text-black">Image section:</h1>
 
       <div>
         <%= form.label :image_title, style: "display: block" %>
-        <%= form.text_field :image_title %>
+        <%= form.text_field :image_title, required: true %>
       </div>
     
       <div>
         <%= form.label :image_title_ar, style: "display: block" %>
-        <%= form.text_field :image_title_ar %>
+        <%= form.text_field :image_title_ar, required: true %>
       </div>
     
       <div>
         <%= form.label :image_description, style: "display: block" %>
-        <%= form.text_area :image_description %>
+        <%= form.text_area :image_description, required: true %>
       </div>
     
       <div>
         <%= form.label :image_description_ar, style: "display: block" %>
-        <%= form.text_area :image_description_ar %>
+        <%= form.text_area :image_description_ar, required: true %>
       </div>
     
       <div>
         <%= form.label :images, style: "display: block" %>
-        <%= form.file_field :images, multiple: true %>
+        <%= form.file_field :images, multiple: true, required: true %>
       </div>
     
     
       <div>
         <%= form.label :home_image, style: "display: block" %>
-        <%= form.file_field :home_image %>
+        <%= form.file_field :home_image, required: true %>
       </div>
     
     

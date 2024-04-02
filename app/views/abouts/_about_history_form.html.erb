@@ -1,13 +1,13 @@
 <div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
 
     <%= f.label :year, "year" %>
-    <%= f.text_field :year %>
+    <%= f.text_field :year, required: true %>
 
     <%= f.label :description, "description" %>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, required: true %>
 
     <%= f.label :description_ar, "description_ar" %>
-    <%= f.text_field :description_ar %>
+    <%= f.text_field :description_ar, required: true %>
     
     
     <button type="button" data-action="nested-form#remove">Remove</button>

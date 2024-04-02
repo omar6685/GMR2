@@ -16,17 +16,17 @@
       
         <div>
           <%= form.label :title, style: "display: block" %>
-          <%= form.text_field :title %>
+          <%= form.text_field :title, required: true %>
         </div>
       
         <div>
           <%= form.label :title_ar, style: "display: block" %>
-          <%= form.text_field :title_ar %>
+          <%= form.text_field :title_ar, required: true %>
         </div>
       
         <div>
           <%= form.label :image, style: "display: block" %>
-          <%= form.file_field :image, accept: 'image/png,image/jpeg,image/jpg' %>
+          <%= form.file_field :image, accept: 'image/png,image/jpeg,image/jpg', required: true %>
         </div>
       
           <%= form.hidden_field :user_id, value: current_user.id %>

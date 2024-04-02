@@ -19,20 +19,20 @@
 
       <div>
         <%= form.label :logo, style: "display: block" %>
-        <%= form.file_field :logo, accept: 'image/png,image/jpeg,image/jpg' %>
+        <%= form.file_field :logo, accept: 'image/png,image/jpeg,image/jpg', required: true %>
       </div>
     
       <div>
         <%= form.label :image, style: "display: block" %>
-        <%= form.file_field :image, accept: 'image/png,image/jpeg,image/jpg' %>
+        <%= form.file_field :image, accept: 'image/png,image/jpeg,image/jpg', required: true %>
       </div>
     
       <div>
         <%= form.label :description, style: "display: block" %>
-        <%= form.rich_text_area :description %>
+        <%= form.rich_text_area :description, required: true %>
       </div>
         <%= form.label :description_ar, style: "display: block" %>
-        <%= form.rich_text_area :description_ar %>
+        <%= form.rich_text_area :description_ar, required: true %>
       <div>
     
       </div>

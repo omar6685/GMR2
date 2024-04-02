@@ -17,22 +17,22 @@
     
       <div>
         <%= form.label :product_id, "Select Product", style: "display: block" %>
-        <%= form.collection_select :product_id, Product.all, :id, :name, prompt: "Select a product" %>
+        <%= form.collection_select :product_id, Product.all, :id, :name, prompt: "Select a product", required: true %>
       </div>
     
       <div>
         <%= form.label :content, style: "display: block" %>
-        <%= form.rich_text_area :content %>
+        <%= form.rich_text_area :content, required: true %>
       </div>
     
       <div>
         <%= form.label :content_ar, style: "display: block" %>
-        <%= form.rich_text_area :content_ar %>
+        <%= form.rich_text_area :content_ar, required: true %>
       </div>
     
       <div>
         <%= form.label :image, style: "display: block" %>
-        <%= form.file_field :image %>
+        <%= form.file_field :image, required: true %>
       </div>
     
       <div>

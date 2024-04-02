@@ -1,31 +1,31 @@
 <div class="nested-form-wrapper flex flex-col" data-new-record="<%= f.object.new_record? %>">
 
     <%= f.label :image, "image" %>
-    <%= f.file_field :image %>
+    <%= f.file_field :image, required: true %>
 
     <%= f.label :name, "name" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true %>
 
     <%= f.label :name_ar, "name_ar" %>
-    <%= f.text_field :name_ar %>
+    <%= f.text_field :name_ar, required: true %>
 
     <%= f.label :position, "position" %>
-    <%= f.text_field :position %>
+    <%= f.text_field :position, required: true %>
 
     <%= f.label :phone, "phone" %>
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone, required: true %>
 
     <%= f.label :email, "email" %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, required: true %>
 
     <%= f.label :language, "language" %>
-    <%= f.text_field :language %>
+    <%= f.text_field :language, required: true %>
 
     <%= f.label :statement, "statement" %>
-    <%= f.text_field :statement %>
+    <%= f.text_field :statement, required: true %>
 
     <%= f.label :statement_ar, "statement_ar" %>
-    <%= f.text_field :statement_ar %>
+    <%= f.text_field :statement_ar, required: true %>
 
     <button type="button" data-action="nested-form#remove">Remove</button>
     <%= f.hidden_field :_destroy %>
