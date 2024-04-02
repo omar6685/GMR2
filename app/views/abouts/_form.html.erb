@@ -1,105 +1,110 @@
-<%= form_with(model: about, url: about.persisted? ? about_path(locale: I18n.locale, id: about.id) : abouts_path(locale: I18n.locale), data: { 
-  controller: "nested-form",
-  nested_form_wrapper_selector_value: '.nested-form-wrapper'
-}) do |form| %>
-  <% if about.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(about.errors.count, "error") %> prohibited this about from being saved:</h2>
-
-      <ul>
-        <% about.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<%= render 'static_public/dash_header' %>
+<div class="p-4 sm:ml-64">
+   <div class="p-4 border-2 flex flex-col border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+      <%= form_with(model: about, url: about.persisted? ? about_path(locale: I18n.locale, id: about.id) : abouts_path(locale: I18n.locale), data: { 
+        controller: "nested-form",
+        nested_form_wrapper_selector_value: '.nested-form-wrapper'
+      }) do |form| %>
+        <% if about.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(about.errors.count, "error") %> prohibited this about from being saved:</h2>
+      
+            <ul>
+              <% about.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-
-  <div>
-    <%= form.label :title_ar, style: "display: block" %>
-    <%= form.text_field :title_ar %>
-  </div>
-
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.rich_text_area :content %>
-  </div>
-
-  <div>
-    <%= form.label :content_ar, style: "display: block" %>
-    <%= form.rich_text_area :content_ar %>
-  </div>
-
-  <div>
-    <%= form.label :content_2, style: "display: block" %>
-    <%= form.rich_text_area :content_2 %>
-  </div>
-
-  <div>
-    <%= form.label :content_ar_2, style: "display: block" %>
-    <%= form.rich_text_area :content_ar_2 %>
-  </div>
-
-  <div>
-    <%= form.label :founder_title, style: "display: block" %>
-    <%= form.text_field :founder_title %>
-  </div>
-
-  <div>
-    <%= form.label :founder_title_ar, style: "display: block" %>
-    <%= form.text_field :founder_title_ar %>
-  </div>
-
-  <div>
-    <%= form.label :founder_description, style: "display: block" %>
-    <%= form.rich_text_area :founder_description %>
-  </div>
-
-  <div>
-    <%= form.label :founder_description_ar, style: "display: block" %>
-    <%= form.rich_text_area :founder_description_ar %>
-  </div>
-
-  <div>
-    <%= form.label :founder_image, style: "display: block" %>
-    <%= form.file_field :founder_image %>
-  </div>
-
-  <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= form.file_field :image %>
-  </div>
-
-
-
-  <%#   start custum logic here %>
-  <template data-nested-form-target="template">
-    <%= form.fields_for :histories, History.new, child_index: "NEW_RECORD" do |history_fields| %>
-      <%= render 'abouts/about_history_form', f: history_fields %>
-    <% end %>
-  </template>
-
-  <%= form.fields_for :histories do |history_fields| %>
-    <%= render 'abouts/about_history_form', f: history_fields %>
-  <% end %>
-
-
-  <!-- Inserted elements will be injected before that target. -->
-  <div data-nested-form-target="target"></div>
-
-  <button type="button" data-action="nested-form#add">Add History</button>
-
-  <%# end custom logic %>
-
-
-  <%= form.hidden_field :user_id, value: current_user.id %>
-  
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+      
+        <div>
+          <%= form.label :title, style: "display: block" %>
+          <%= form.text_field :title %>
+        </div>
+      
+      
+        <div>
+          <%= form.label :title_ar, style: "display: block" %>
+          <%= form.text_field :title_ar %>
+        </div>
+      
+        <div>
+          <%= form.label :content, style: "display: block" %>
+          <%= form.rich_text_area :content %>
+        </div>
+      
+        <div>
+          <%= form.label :content_ar, style: "display: block" %>
+          <%= form.rich_text_area :content_ar %>
+        </div>
+      
+        <div>
+          <%= form.label :content_2, style: "display: block" %>
+          <%= form.rich_text_area :content_2 %>
+        </div>
+      
+        <div>
+          <%= form.label :content_ar_2, style: "display: block" %>
+          <%= form.rich_text_area :content_ar_2 %>
+        </div>
+      
+        <div>
+          <%= form.label :founder_title, style: "display: block" %>
+          <%= form.text_field :founder_title %>
+        </div>
+      
+        <div>
+          <%= form.label :founder_title_ar, style: "display: block" %>
+          <%= form.text_field :founder_title_ar %>
+        </div>
+      
+        <div>
+          <%= form.label :founder_description, style: "display: block" %>
+          <%= form.rich_text_area :founder_description %>
+        </div>
+      
+        <div>
+          <%= form.label :founder_description_ar, style: "display: block" %>
+          <%= form.rich_text_area :founder_description_ar %>
+        </div>
+      
+        <div>
+          <%= form.label :founder_image, style: "display: block" %>
+          <%= form.file_field :founder_image %>
+        </div>
+      
+        <div>
+          <%= form.label :image, style: "display: block" %>
+          <%= form.file_field :image %>
+        </div>
+      
+      
+      
+        <%#   start custum logic here %>
+        <template data-nested-form-target="template">
+          <%= form.fields_for :histories, History.new, child_index: "NEW_RECORD" do |history_fields| %>
+            <%= render 'abouts/about_history_form', f: history_fields %>
+          <% end %>
+        </template>
+      
+        <%= form.fields_for :histories do |history_fields| %>
+          <%= render 'abouts/about_history_form', f: history_fields %>
+        <% end %>
+      
+      
+        <!-- Inserted elements will be injected before that target. -->
+        <div data-nested-form-target="target"></div>
+      
+        <button type="button" data-action="nested-form#add">Add History</button>
+      
+        <%# end custom logic %>
+      
+      
+        <%= form.hidden_field :user_id, value: current_user.id %>
+        
+        <div>
+          <%= form.submit %>
+        </div>
+      <% end %>
+   </div>
+</div>

@@ -2,22 +2,22 @@
 <!-- start hero section -->
 <section>
     <% if @about.image.attached? %>
-      <%= image_tag  @about.image, class: "h-[100vh] w-full object-cover" %>
+      <%= image_tag  @about.image, class: "h-fit w-full object-contain" %>
     <% end %>
 </section>
 <!-- end hero section -->
 <!-- start second section -->
-<section class="mt-[57px] mb-[50px] px-[100px]">
-            <h1 class="text-center text-[45px] font-bold"><%= @about.title %></h1>
-            <div class="flex flex-col md:flex-row justify-around mt-[37px] font-light text-[20px]">
-                <p class="mr-6"><%= @about.content %></p>
-                <p><%= @about.content_2 %></p>
+<section class="mt-[57px] mb-[50px] px-5">
+            <h1 class="text-lg md:text-4xl md:w-3/4 m-auto lg:text-5xl text-center font-bold"><%= @about.title %></h1>
+            <div class="grid grid-cols-1 m-auto md:w-3/4 sm:grid-cols-2 gap-4 mt-[37px] font-light">
+                <%= @about.content %>
+                <%= @about.content_2 %>
             </div>
 </section>
 <!-- end second section -->
 <!-- start card section -->
 <section class="bg-black pb-20">
-            <h1 class="py-10 font-bold text-white text-center text-[45px]"><%= @about.founder_title %></h1>
+            <h1 class="py-10 font-bold text-white text-lg md:text-4xl md:w-3/4 m-auto lg:text-5xl text-center"><%= @about.founder_title %></h1>
             <div class="flex justify-center mx-2">
                 <div
                     class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md w-full max-w-[80rem] md:flex-row">
@@ -43,7 +43,7 @@
                     <% if index.even?  %>
                         <div class="flex md:contents flex-row-reverse">
                             <div
-                                class="relative p-4 my-6 text-gray-800 bg-white rounded-xl col-start-1 col-end-5 mr-auto md:mr-0 md:ml-auto border border-black">
+                                class="relative max-w-[400px] p-4 my-6 text-gray-800 bg-white rounded-xl col-start-1 col-end-5 mr-auto md:mr-0 md:ml-auto border border-black">
                                 <h3 class="text-lg font-bold lg:text-xl"><%= history.year %></h3>
                                 <p class="mt-2 leading-6"><%= history.description %></p>
     
@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                             <div
-                                class="relative p-4 my-6 text-gray-800 bg-white rounded-xl col-start-6 col-end-10 mr-auto border border-black">
+                                class="relative max-w-[400px] p-4 my-6 text-gray-800 bg-white rounded-xl col-start-6 col-end-10 mr-auto border border-black">
                                 <h3 class="text-lg font-bold lg:text-xl"><%= history.year %></h3>
                                 <p class="mt-2 leading-6"><%= history.description %></p>
     
