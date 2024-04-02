@@ -53,23 +53,3 @@
         </div>
     </div>
 </footer>
-<script>
-    // Wait for the DOM content to be fully loaded
-document.addEventListener("DOMContentLoaded", function() {
-    // Get all elements with class "trix-content"
-    const trixContents = document.querySelectorAll('.trix-content');
-
-    // Loop through each trix-content element
-    trixContents.forEach(function(trixContent) {
-        // Check if the parent element has the specified classes
-        const parentElement = trixContent.closest('.trix-parent');
-
-        // If the parent element exists, add the "text-center" class to the trix-content element
-        if (parentElement) {
-            trixContent.classList.add('text-center');
-            trixContent.classList.add('text-white');
-        }
-    });
-});
-
-</script>

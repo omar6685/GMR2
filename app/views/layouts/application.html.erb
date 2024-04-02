@@ -49,5 +49,17 @@
     <p class="alert"><%= alert %></p>
     <%= yield %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script>
+      document.addEventListener("turbo:load", function() {
+          const trixContents = document.querySelectorAll('.trix-content');
+          trixContents.forEach(function(trixContent) {
+              const parentElement = trixContent.closest('.trix-parent');
+              if (parentElement) {
+                  trixContent.classList.add('text-center');
+                  trixContent.classList.add('text-white');
+              }
+          });
+      });
+    </script>
   </body>
 </html>
