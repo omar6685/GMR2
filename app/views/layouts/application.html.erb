@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <%= rtl_attribute_if_arabic_locale %> lang="<%= I18n.locale %>">
+<html lang="<%= I18n.locale %>" dir="<%= I18n.locale == :ar ? 'rtl' : 'ltr' %>">
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -61,6 +61,18 @@
               }
           });
       });
+    </script>
+    <!-- Your JavaScript code -->
+    <script>
+      function switchToArabic() {
+        document.documentElement.lang = 'ar';
+        document.documentElement.dir = 'rtl';
+      }
+    
+      function switchToEnglish() {
+        document.documentElement.lang = 'en';
+        document.documentElement.dir = 'ltr';
+      }
     </script>
   </body>
 </html>
