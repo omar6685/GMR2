@@ -64,7 +64,7 @@
     <strong>Video:</strong>
     <% if product.video.attached? %>
         <% if product.video.video? %>
-            <video controls autoplay muted class="relative grid w-full bg-black h-96 lg:h-[32rem] place-items-center">
+            <video autoplay muted class="relative grid w-full bg-black h-96 lg:h-[32rem] place-items-center">
                 <source src="<%= rails_blob_path(product.video) %>" type="video/mp4">
                 Your browser does not support the video tag.
             </video>

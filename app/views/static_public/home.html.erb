@@ -7,7 +7,7 @@
 <section>
     <% if @home_video.video.attached? %>
         <% if @home_video.video.video? %>
-            <video controls autoplay muted loop class="relative grid object-contain sm:object-cover w-full bg-black h-auto md:h-[100vh]">
+            <video autoplay muted loop class="relative grid object-contain sm:object-cover w-full bg-black h-auto md:h-[100vh]">
                 <source src="<%= rails_blob_path(@home_video.video) %>" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -111,7 +111,7 @@
             <section>
                 <% if @home_video.video.attached? %>
                     <% if @home_video.video.video? %>
-                        <video controls autoplay muted class="relative grid w-full bg-black h-96 lg:h-[32rem] place-items-center">
+                        <video autoplay muted class="relative grid w-full bg-black h-96 lg:h-[32rem] place-items-center">
                             <source src="<%= rails_blob_path(@home_video.video) %>" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
