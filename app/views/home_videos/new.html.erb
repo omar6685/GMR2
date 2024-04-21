@@ -20,7 +20,7 @@
     
       <div class="field">
         <%= form.label :video, "Upload Video" %>
-        <%= form.file_field :video, accept: 'video/*', required: true %>
+        <%= form.file_field :video, accept: 'video/*' %>
       </div>
         <%= form.hidden_field :user_id, value: current_user.id %>
     

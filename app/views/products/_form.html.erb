@@ -21,7 +21,7 @@
       
       <div>
         <%= form.label :video, style: "display: block" %>
-        <%= form.file_field :video, accept: 'video/*', required: true %>
+        <%= form.file_field :video, accept: 'video/*' %>
       </div>
 
 
@@ -79,13 +79,13 @@
     
       <div>
         <%= form.label :images, style: "display: block" %>
-        <%= form.file_field :images, multiple: true, required: true %>
+        <%= form.file_field :images, multiple: true %>
       </div>
     
     
       <div>
         <%= form.label :home_image, style: "display: block" %>
-        <%= form.file_field :home_image, required: true %>
+        <%= form.file_field :home_image %>
       </div>
     
     

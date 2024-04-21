@@ -7,7 +7,7 @@
     <%= f.rich_text_area :content_ar, required: true %>
 
     <%= f.label :image, "image" %>
-    <%= f.file_field :image, required: true %>
+    <%= f.file_field :image %>
 
     <button type="button" data-action="nested-form#remove">Remove</button>
     <%= f.hidden_field :_destroy %>

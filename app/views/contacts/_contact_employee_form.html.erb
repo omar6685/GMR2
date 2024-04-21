@@ -1,7 +1,7 @@
 <div class="nested-form-wrapper flex flex-col" data-new-record="<%= f.object.new_record? %>">
 
     <%= f.label :image, "image" %>
-    <%= f.file_field :image, required: true %>
+    <%= f.file_field :image %>
 
     <%= f.label :name, "name" %>
     <%= f.text_field :name, required: true %>
