@@ -25,9 +25,9 @@
                 </div>
                 <P class="mx-2 lg:flex hidden items-center justify-between w-full py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto text-white hover:text-[#3535ff] focus:text-white md:hover:bg-transparent">
                     <% if Logo.first.pdf_file.attached? %>
-                      <%= link_to t("company_profile"), url_for(Logo.first.pdf_file), target: "_blank", clsaa: "" %>
+                      <%= link_to t("company_profile"), url_for(Logo.first.pdf_file), download: "company_profile.pdf", target: "_blank", class: "" %>
                     <% end %>     
-                </P>                 
+                </P>
                 <a href="<%= about_us_path %>" class="mx-2 lg:flex hidden items-center justify-between w-full py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto text-white hover:text-[#3535ff] focus:text-white md:hover:bg-transparent" aria-current="page"><%= t('about_us') %></a>
                 <a href="<%= contact_us_path %>" class="mx-2 lg:flex hidden items-center justify-between w-full py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto text-white hover:text-[#3535ff] focus:text-white md:hover:bg-transparent " aria-current="page"><%= t('contact_us') %></a>
                 <%= link_to(contact_us_path) do %>
