@@ -51,7 +51,7 @@ bg-black !text-white
             <p class=" text-center mt-5 text-white"><%= localized_attribute(product, :description) %></p>
             <% if product.home_image.attached? %>
               <div class="p-10 m-auto">
-                  <li>
+                  <li class="list-none	">
                     <a href="<%= product_path(locale: I18n.locale, id: product.id) %>">
                         <%= image_tag  product.home_image, class: "m-auto max-h-[400px] w-full h-full max-w-[1200px] object-contain cursor-pointer transition-all duration-500 hover:scale-105", alt: "Img 1", id: "img1" %>
                     </a>
