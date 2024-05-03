@@ -7,6 +7,11 @@
             <%= localized_attribute(logo, :description) %>
           </p>
         </div>
+        <a href="<%= root_path %>" class="flex items-center m-auto mb-10">
+            <% if Logo.first.logo.attached? %>
+              <%= image_tag  Logo.first.logo, alt: 'logo', class: "w-auto h-16" %>
+            <% end %>                      
+        </a>
     </div>
     <div class="bg-black flex flex-col md:flex-row justify-between px-2 md:px-20 py-3 items-center">
         <div class="flex gap-2">
