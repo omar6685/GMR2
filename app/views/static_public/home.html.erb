@@ -18,7 +18,7 @@ bg-black !text-white
 </section>
 
 
-<section class="mt-10 mx-2 md:mx-20">
+<section class="mt-10 mx-2 md:mx-20 bg-black !text-white">
   <div class=" w-11/12 md:w-2/3">
     <h1 class="text-lg md:text-4xl	lg:text-5xl font-semibold"><%= localized_attribute(@home_test, :title) %></h1>
     <p class=" text-center mt-5"><%= localized_attribute(@home_test, :content) %></p>
@@ -26,7 +26,7 @@ bg-black !text-white
 </section>
 
 
-<section class="mt-10 mx-3 md:mx-20">
+<section class="mt-10 mx-3 md:mx-20 bg-black !text-white">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         <% @home_boxes.each do |box| %>
             <div class=" w-10/12">
@@ -64,7 +64,7 @@ bg-black !text-white
 </section>
 
 
-<section class="mt-10 mb-20 mx-2 md:mx-20">
+<section class="mt-10 mb-20 mx-2 md:mx-20 bg-black !text-white">
   <div class=" w-11/12 md:w-2/3 m-auto">
     <p class=" text-center mt-5 font-bold"><%= localized_attribute(@home_site, :title) %></p>
     <h1 class="text-lg md:text-4xl	lg:text-5xl text-center font-semibold"><%= t("company_premises") %></h1>
