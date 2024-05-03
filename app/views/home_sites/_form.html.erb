@@ -1,5 +1,5 @@
 <%= render 'static_public/dash_header' %>
-<div class="p-4 sm:ml-64">
+<div class="p-4 sm:ml-64 bg-white text-black h-screen">
    <div class="p-4 border-2 flex flex-col border-gray-200 border-dashed rounded-lg dark:border-gray-700">
       <%= form_with(model: home_site, url: home_site.persisted? ? home_site_path(locale: I18n.locale, id: home_site.id) : home_sites_path(locale: I18n.locale)) do |form| %>
         <% if home_site.errors.any? %>

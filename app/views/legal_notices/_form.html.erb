@@ -1,6 +1,5 @@
 <%= render 'static_public/dash_header' %>
-<div class="p-4 sm:ml-64">
-   <div class="p-4 border-2 flex flex-col border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+<div class="p-4 sm:ml-64 bg-white text-black border-dashed rounded-lg">
     <%= form_with(model: legal_notice, url: legal_notice.persisted? ? legal_notice_path(locale: I18n.locale, id: legal_notice.id) : legal_notices_path(locale: I18n.locale)) do |form| %>
       <% if legal_notice.errors.any? %>
         <div style="color: red">
