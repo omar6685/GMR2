@@ -13,11 +13,11 @@
                         <%= t("materials") %>
                     </button>
                     <!-- Dropdown menu -->
-                    <div class="z-10 hidden group-hover:flex font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute">
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownLargeButton">
+                    <div class="z-10 hidden backdrop-blur-sm group-hover:flex font-normal bg-white/30 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute">
+                        <ul class="py-2 text-sm text-white" aria-labelledby="dropdownLargeButton">
                             <% Product.all.each do |product| %>
                                 <li>
-                                    <%= link_to localized_attribute(product, :name), product_path(locale: I18n.locale, id: product.id), class: "block hover:text-[#3535ff] px-4 py-2 " %>
+                                    <%= link_to localized_attribute(product, :name), product_path(locale: I18n.locale, id: product.id), class: "block px-4 py-2 " %>
                                 </li>
                             <% end %>
                         </ul>
