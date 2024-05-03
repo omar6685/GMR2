@@ -4,4 +4,5 @@ class Logo < ApplicationRecord
   has_one_attached :logo
   has_rich_text :description
   has_rich_text :description_ar
+  has_one_attached :pdf_file
 end

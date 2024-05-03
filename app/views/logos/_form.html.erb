@@ -28,6 +28,11 @@
       </div>
     
       <div>
+        <%= form.label :pdf_file, style: "display: block" %>
+        <%= form.file_field :pdf_file, accept: 'application/pdf' %>
+      </div>
+    
+      <div>
         <%= form.label :description, style: "display: block" %>
         <%= form.rich_text_area :description, required: true %>
       </div>
