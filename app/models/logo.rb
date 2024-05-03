@@ -5,4 +5,5 @@ class Logo < ApplicationRecord
   has_rich_text :description
   has_rich_text :description_ar
   has_one_attached :pdf_file
+  has_one_attached :favicon
 end

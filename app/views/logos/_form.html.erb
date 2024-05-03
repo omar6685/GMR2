@@ -33,6 +33,11 @@
       </div>
     
       <div>
+        <%= form.label :favicon, style: "display: block" %>
+        <%= form.file_field :favicon, accept: 'image/png,image/jpeg,image/jpg' %>
+      </div>
+    
+      <div>
         <%= form.label :description, style: "display: block" %>
         <%= form.rich_text_area :description, required: true %>
       </div>
