@@ -22,16 +22,16 @@
         ",
       keywords: "GMR, Recycling, Metal Recovery, Environment, Natural Resources, Clean Technology",
       icon: [
-        { href: image_url('logo.png') },
-        { href: image_url('logo.png'), rel: 'apple-touch-icon', sizes: '180x180' }
+        { href: url_for(Logo.first.favicon) },
+        { href: url_for(Logo.first.favicon), rel: 'apple-touch-icon', sizes: '180x180' }
       ],
-      image: image_url('logo.png'),
+      image: url_for(Logo.first.favicon),
       og: {
         title: :title,
         description: :description,
         type: 'website',
         url: 'https://www.gmr-recycling.com',
-        image: image_url('logo.png'),
+        image: url_for(Logo.first.favicon),
       }
     %>
     <!-- Google tag (gtag.js) -->
