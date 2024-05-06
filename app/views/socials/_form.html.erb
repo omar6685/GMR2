@@ -17,22 +17,28 @@
     
       <div>
         <%= form.label :linkind, style: "display: block" %>
-        <%= form.text_field :linkind, required: true %>
+        <%= form.text_field :linkind %>
       </div>
     
       <div>
         <%= form.label :instgram, style: "display: block" %>
-        <%= form.text_field :instgram, required: true %>
+        <%= form.text_field :instgram %>
       </div>
     
       <div>
         <%= form.label :x, style: "display: block" %>
-        <%= form.text_field :x, required: true %>
+        <%= form.text_field :x %>
       </div>
     
       <div>
         <%= form.label :faacebook, style: "display: block" %>
-        <%= form.text_field :faacebook, required: true %>
+        <%= form.text_field :faacebook %>
+      </div>
+
+
+      <div>
+        <%= form.label :phone, style: "display: block" %>
+        <%= form.text_field :phone %>
       </div>
 
       <%= form.hidden_field :user_id, value: current_user.id %>
