@@ -1,7 +1,8 @@
 <header>
     <nav class="bg-black border-gray-200 px-4 lg:px-6 py-2.5">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-            <a href="tel:+442071234567">
+            <% social = Social.first %>
+            <a href="tel:<%= social.phone %>" class="lg:hidden flex">
                 <%= image_tag('phone.svg', alt: 'logo', class: "lg:hidden flex items-center w-6	h-7") %>
             </a>
             <a href="<%= root_path %>" class="flex items-center">
